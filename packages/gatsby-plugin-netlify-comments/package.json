@@ -1,0 +1,24 @@
+{
+  "name": "gatsby-plugin-netlify-comments",
+  "version": "0.0.1",
+  "description": "A plugin for using comments in Gatsby",
+  "main": "index.js",
+  "scripts": {
+    "dev": ""
+  },
+  "author": "Jarod Peachey",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": "^16.10.2",
+    "styled-components": "^5.0.1"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.0",
+    "netlify-comments": "^0.0.1"
+  },
+  "gitHead": "ebd881bd9ab9cffd087d1ed60fd377ffcc43f4f4",
+  "publishConfig": {
+    "access": "public"
+  }
+}
