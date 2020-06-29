@@ -40,6 +40,6 @@
   },
   "gitHead": "3b898beb081bdb1525b4c4c23db25ae506b16c7d",
   "publishConfig": {
-    "access": "public"
+    "registry": "https://npm.pkg.github.com/"
   }
 }
