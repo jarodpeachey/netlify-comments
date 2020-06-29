@@ -12,14 +12,14 @@ module.exports = {
     author: '@jarodpeachey',
   },
   plugins: [
-    // {
-    //   resolve: 'gatsby-plugin-netlify-comments',
-    //   options: {
-    //     apiKey: process.env.NETLIFY_TOKEN,
-    //     siteID: 'b6b13974-f786-41c8-841f-38ba49c28710',
-    //     color: '#254864',
-    //   },
-    // },
+    {
+      resolve: 'gatsby-plugin-netlify-comments',
+      options: {
+        apiKey: process.env.NETLIFY_TOKEN,
+        siteID: '0c6e17fa-35ad-43d5-b244-5571222b6ac7',
+        color: '#254864',
+      },
+    },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -39,12 +39,6 @@ module.exports = {
         theme_color: '#663399',
         display: 'minimal-ui',
         icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-zopfli',
-      options: {
-        path: 'zopfli',
       },
     },
     'gatsby-plugin-styled-components',

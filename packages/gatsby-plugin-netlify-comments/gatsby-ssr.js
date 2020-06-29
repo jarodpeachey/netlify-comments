@@ -1,7 +1,7 @@
 const React = require('react');
-const { Triangle } = require('triangle-comments');
+const { CommentsProvider } = require('netlify-comments');
 
 exports.wrapRootElement = ({ element }, options) => {
-  return <Triangle options={options}>{element}</Triangle>;
+  return <CommentsProvider options={options}>{element}</CommentsProvider>;
   // return element;
 };

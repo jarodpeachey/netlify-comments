@@ -1,13 +1,13 @@
 const React = require('react');
 
-export const TriangleContext = React.createContext({});
+export const CommentsContext = React.createContext({});
 
 /**
  * Manages the shopping cart, which is persisted in local storage.
  * The cart and related methods are shared through context.
  */
 
-export class TriangleConstructor {
+export class CommentsConstructor {
   color = 'tomato';
 
   apiKey = '';
@@ -23,12 +23,12 @@ export class TriangleConstructor {
   }
 }
 
-export const Triangle = ({ options, children }) => {
+export const CommentsProvider = ({ options, children }) => {
   console.log(options, children);
 
   const { apiKey, siteID, color } = options;
 
-  window.triangle = new TriangleConstructor(options);
+  window.Comments = new CommentsConstructor(options);
 
   const ctx = {
     apiKey,
@@ -37,8 +37,8 @@ export const Triangle = ({ options, children }) => {
   };
 
   return (
-    <TriangleContext.Provider value={{ ...ctx }}>
+    <CommentsContext.Provider value={{ ...ctx }}>
       {children}
-    </TriangleContext.Provider>
+    </CommentsContext.Provider>
   );
 };
