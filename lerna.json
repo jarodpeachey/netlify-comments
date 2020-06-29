@@ -1,5 +1,5 @@
 {
-  "version": "0.0.2",
+  "version": "0.0.0",
   "npmClient": "yarn",
   "useWorkspaces": true,
   "command": {
@@ -9,7 +9,7 @@
         "*.md"
       ],
       "message": "chore(release): publish",
-      "registry": "https://npm.pkg.github.com/@jarodpeachey"
+      "registry": "https://registry.npmjs.com"
     }
   },
   "packages": [
