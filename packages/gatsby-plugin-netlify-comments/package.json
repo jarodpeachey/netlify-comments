@@ -28,13 +28,13 @@
     "node-fetch": "^2.6.0",
     "npm-link-shared": "^0.5.6"
   },
-  "gitHead": "8ed15c7fb2c904b2a1b7ae0bc3c18356221ae5b5",
+  "gitHead": "8c0f746eb9fb1d4acb03a23756670b9d589ea0a4",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/jarodpeachey"
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com/jarodpeachey/netlify-comments.git",
+    "url": "https://github.com/jarodpeachey/netlify-comments",
     "directory": "packages/gatsby-plugin-netlify-comments"
   }
 }
