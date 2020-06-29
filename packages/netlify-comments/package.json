@@ -38,9 +38,9 @@
     "lodash.merge": "^4.6.2",
     "styled-components": "^5.1.0"
   },
-  "gitHead": "34287c05105407c4223adba65835ca9a1c9c04f9",
+  "gitHead": "8ed15c7fb2c904b2a1b7ae0bc3c18356221ae5b5",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "registry": "https://npm.pkg.github.com/jarodpeachey"
   },
   "repository": {
     "type": "git",
