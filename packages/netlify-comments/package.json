@@ -38,8 +38,13 @@
     "lodash.merge": "^4.6.2",
     "styled-components": "^5.1.0"
   },
-  "gitHead": "3b898beb081bdb1525b4c4c23db25ae506b16c7d",
+  "gitHead": "34287c05105407c4223adba65835ca9a1c9c04f9",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
+  },
+    "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com/jarodpeachey/netlify-comments.git",
+    "directory": "packages/netlify-comments"
   }
 }
