@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-netlify-comments",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A plugin for using comments in Gatsby",
   "main": "index.js",
   "scripts": {
