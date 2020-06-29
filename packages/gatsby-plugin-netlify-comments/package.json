@@ -28,7 +28,7 @@
     "node-fetch": "^2.6.0",
     "npm-link-shared": "^0.5.6"
   },
-  "gitHead": "0e64fa2643d9cdd345b9170323e001c0ca17fc5f",
+  "gitHead": "54aa02b12a38ecb7f8bfafe9ef279ca8afcdb049",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/jarodpeachey"
   },

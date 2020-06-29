@@ -9,7 +9,7 @@
         "*.md"
       ],
       "message": "chore(release): publish",
-      "registry": "https://npm.pkg.github.com/jarodpeachey"
+      "registry": "https://npm.pkg.github.com/@jarodpeachey"
     }
   },
   "packages": [
