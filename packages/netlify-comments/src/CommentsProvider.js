@@ -7,21 +7,18 @@ export const CommentsContext = React.createContext({});
  * The cart and related methods are shared through context.
  */
 
-// export class CommentsConstructor {
-//   color;
+export class NetlifyComments {
+  apiKey;
 
-//   apiKey;
+  siteID;
 
-//   siteID;
+  constructor(props) {
+    console.log(props);
 
-//   constructor(props) {
-//     console.log(props);
-
-//     this.apiKey = props.apiKey;
-//     this.color = props.color;
-//     this.siteID = props.siteID;
-//   }
-// }
+    this.apiKey = props.apiKey;
+    this.siteID = props.siteID;
+  }
+}
 
 export const CommentsProvider = ({ options, children }) => {
   console.log(options, children);
