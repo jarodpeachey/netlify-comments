@@ -8,13 +8,6 @@
   },
   "author": "Jarod Peachey",
   "license": "ISC",
-  "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.1.0",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.19.0",
-    "prettier": "^2.0.4"
-  },
   "peerDependencies": {
     "react": ">=16.8",
     "react-dom": ">=16.8",
