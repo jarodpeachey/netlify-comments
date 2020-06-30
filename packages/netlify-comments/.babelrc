@@ -3,6 +3,7 @@
   "plugins": [
     "babel-plugin-styled-components",
     "@babel/plugin-syntax-class-properties",
-    "@babel/plugin-syntax-class-properties"
+    "@babel/plugin-syntax-class-properties",
+    "@babel/plugin-syntax-jsx"
   ]
 }
