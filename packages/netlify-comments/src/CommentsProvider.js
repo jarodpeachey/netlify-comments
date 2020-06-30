@@ -20,22 +20,22 @@ export class NetlifyComments {
   }
 }
 
-export const CommentsProvider = ({ options, children }) => {
-  console.log(options, children);
+// export const CommentsProvider = ({ options, children }) => {
+//   console.log(options, children);
 
-  const { apiKey, siteID, color } = options;
+//   const { apiKey, siteID, color } = options;
 
-  window.Comments = { options };
+//   window.Comments = { options };
 
-  const ctx = {
-    apiKey,
-    siteID,
-    color,
-  };
+//   const ctx = {
+//     apiKey,
+//     siteID,
+//     color,
+//   };
 
-  return (
-    <CommentsContext.Provider value={{ ...ctx }}>
-      {children}
-    </CommentsContext.Provider>
-  );
-};
+//   return (
+//     <CommentsContext.Provider value={{ ...ctx }}>
+//       {children}
+//     </CommentsContext.Provider>
+//   );
+// };

@@ -1,5 +1,5 @@
 const React = require('react');
-const { CommentsProvider, NetlifyComments } = require('netlify-comments');
+const { NetlifyComments } = require('netlify-comments');
 
 // exports.wrapRootElement = ({ element }, options) => {
 //   console.log(element, options);
