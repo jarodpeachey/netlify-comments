@@ -7,28 +7,28 @@ export const CommentsContext = React.createContext({});
  * The cart and related methods are shared through context.
  */
 
-export class CommentsConstructor {
-  color = 'tomato';
+// export class CommentsConstructor {
+//   color;
 
-  apiKey = '';
+//   apiKey;
 
-  siteID = '';
+//   siteID;
 
-  constructor(props) {
-    console.log(props);
+//   constructor(props) {
+//     console.log(props);
 
-    this.apiKey = props.apiKey;
-    this.color = props.color;
-    this.siteID = props.siteID;
-  }
-}
+//     this.apiKey = props.apiKey;
+//     this.color = props.color;
+//     this.siteID = props.siteID;
+//   }
+// }
 
 export const CommentsProvider = ({ options, children }) => {
   console.log(options, children);
 
   const { apiKey, siteID, color } = options;
 
-  window.Comments = new CommentsConstructor(options);
+  window.Comments = { options };
 
   const ctx = {
     apiKey,
