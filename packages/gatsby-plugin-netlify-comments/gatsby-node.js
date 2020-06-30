@@ -38,7 +38,7 @@ exports.sourceNodes = async (
       parent: null,
       children: [],
       internal: {
-        type: `Netlify${name}`,
+        type: name,
       },
     };
     nodeMeta.internal.content = JSON.stringify(nodeMeta);
@@ -58,7 +58,7 @@ exports.sourceNodes = async (
         console.log(json);
 
         Object.values(json).forEach((submission) => {
-          nodeHelper(submission, 'Submissions');
+          nodeHelper(submission, 'Comments');
         });
       });
     });

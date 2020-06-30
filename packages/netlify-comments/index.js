@@ -1,2 +1,3 @@
-export * from './lib/CommentsProvider';
-export * from './lib/form';
+export * from './src/Provider';
+export * from './src/Form';
+export * from './src/Comments';

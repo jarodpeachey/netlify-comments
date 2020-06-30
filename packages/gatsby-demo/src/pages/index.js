@@ -3,7 +3,7 @@ import React from 'react';
 // import Image from '../components/image';
 // import BackgroundImage from 'gatsby-background-image';
 import styled from 'styled-components';
-import { Form } from 'netlify-comments';
+import { Form, Comments } from 'netlify-comments';
 import SEO from '../components/seo';
 import '../components/style.css';
 
@@ -39,6 +39,11 @@ const buttonStyles = `
   }
 `;
 
+const commentStyles = `
+  padding: 16px;
+  border-radius: 6px;
+`;
+
 const IndexPage = ({ data }) => {
   return (
     <>
@@ -53,7 +58,8 @@ const IndexPage = ({ data }) => {
         </Container>
       </Hero>
       <Container>
-        <Form inputStyles={inputStyles} buttonStyles={buttonStyles} />
+        <Form  />
+        <Comments  />
       </Container>
       {/* <CommentSection comments={data.allNetlifySubmissions.edges} /> */}
       {/* <Form /> */}

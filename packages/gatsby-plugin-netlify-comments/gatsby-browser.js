@@ -1,5 +1,5 @@
-const React = require('react');
-const { NetlifyComments } = require('netlify-comments');
+// const React = require('react');
+// const { NetlifyComments } = require('netlify-comments');
 
 // exports.wrapRootElement = ({ element }, options) => {
 //   console.log(element, options);
@@ -14,10 +14,18 @@ const { NetlifyComments } = require('netlify-comments');
 //   // return element;
 // };
 
-exports.onClientEntry = (_, options) => {
-  console.log('OPTIONS: ', options);
-  window.netlifyComments = new NetlifyComments({
-    apiKey: options.apiKey,
-    siteID: options.siteID,
-  });
+// exports.onClientEntry = (_, options) => {
+//   console.log('OPTIONS: ', options);
+//   window.netlifyComments = new NetlifyComments({
+//     apiKey: options.apiKey,
+//     siteID: options.siteID,
+//   });
+// };
+
+const React = require('react');
+const { CommentsProvider } = require('netlify-comments');
+
+exports.wrapRootElement = ({ element }, options) => {
+  return <CommentsProvider options={options}>{element}</CommentsProvider>;
+  // return element;
 };

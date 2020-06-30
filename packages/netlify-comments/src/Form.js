@@ -13,7 +13,9 @@ export const Form = ({ buttonStyles, inputStyles }) => {
 
   const color = 'tomato';
 
-  const [state, setState] = useState({});
+  const [state, setState] = useState({
+    path: typeof window !== 'undefined' && window.location.pathname,
+  });
 
   const handleChange = (e) => {
     setState({
@@ -147,25 +149,9 @@ const Label = styled.label`
   box-sizing: border-box;
 `;
 
-const HiddenLabel = styled.label`
-  height: 0px;
-  width: 0px;
-  background: transparent;
-  color: transparent;
-  border: none;
-  outline: none;
-  cursor: default;
-  padding: 0;
-  margin: 0;
-  max-height: 0px;
-  min-height: 0px;
-  display: float;
-  box-sizing: border-box;
-`;
-
 const Input = styled.input`
   padding: 14px;
-  border: 1px solid #e8e8e8;
+  border: 1px solid #dfdfdf;
   border-radius: 3px;
   font-size: 16px;
   width: 100%;
@@ -180,6 +166,22 @@ const Input = styled.input`
   transition: 0.15s;
   box-sizing: border-box;
   ${(props) => props.customStyles}
+`;
+
+const HiddenLabel = styled.label`
+  height: 0px;
+  width: 0px;
+  background: transparent;
+  color: transparent;
+  border: none;
+  outline: none;
+  cursor: default;
+  padding: 0;
+  margin: 0;
+  max-height: 0px;
+  min-height: 0px;
+  display: float;
+  box-sizing: border-box;
 `;
 
 const HiddenInput = styled.input`
@@ -200,7 +202,7 @@ const HiddenInput = styled.input`
 
 const TextArea = styled.textarea`
   padding: 14px;
-  border: 1px solid #e8e8e8;
+  border: 1px solid #dfdfdf;
   border-radius: 3px;
   font-size: 16px;
   width: 100%;

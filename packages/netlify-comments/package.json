@@ -4,7 +4,8 @@
   "description": "A drop-in solution for using comments on JAMstack sites.",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint \"./packages/**/*{.js,.jsx}\""
+    "lint": "eslint \"./packages/**/*{.js,.jsx}\"",
+    "compile": "npx babel src --out-dir lib"
   },
   "author": "Jarod Peachey",
   "license": "ISC",
