@@ -1,47 +1,42 @@
-# Triangle Comments
+# Netlify Comments
 
-Triangle comments is the simplest way to add comments to your static website. Simply define your API key and Site ID from Netlify, and you can add comments to any page on your website 🎉
-
-***Important:** Currently, Triangle only works with Gatsby and Netlify, but support for other SSGs and hosting providers will be added in the future. If you have any questions or need assistance, you can [contact us](https://github.com/jarodpeachey/triangle-comments#support)*
+A simple package to allow way to add comments to your static website. This package is used in conjunction with [gatsby-plugin-netlify-comments](https://github.com/jarodpeachey/netlify-comments/tree/master/packages/gatsby-plugin-netlify-comments).
 
 ### Table of Contents
 
- - [🚀 Getting Started](https://github.com/jarodpeachey/triangle-comments#getting-started)
-	 - [Setting Up Your Website](https://github.com/jarodpeachey/triangle-comments#setting-up-your-website)
-	 - [Installing Packages](https://github.com/jarodpeachey/triangle-comments#installing-packages)	 
-	 - [Configuration](https://github.com/jarodpeachey/triangle-comments#configuration)
- - [💬 Adding Comment Functionality](https://github.com/jarodpeachey/triangle-comments#adding-comment-functionality)
-	 - [Adding a Form](https://github.com/jarodpeachey/triangle-comments#adding-a-form)
-	 - [Displaying Your Comments](https://github.com/jarodpeachey/triangle-comments#displaying-your-comments)
-- [🎨 Custom Configuration](https://github.com/jarodpeachey/triangle-comments#custom-configuration) 
+ - [🚀 Getting Started](https://github.com/jarodpeachey/netlify-comments#getting-started)
+	 - [Setting Up Your Website](https://github.com/jarodpeachey/netlify-comments#setting-up-your-website)
+	 - [Installing Packages](https://github.com/jarodpeachey/netlify-comments#installing-packages)	 
+	 - [Configuration](https://github.com/jarodpeachey/netlify-comments#configuration)
+ - [💬 Adding Comment Functionality](https://github.com/jarodpeachey/netlify-comments#adding-comment-functionality)
+	 - [Adding a Form](https://github.com/jarodpeachey/netlify-comments#adding-a-form)
+	 - [Displaying Your Comments](https://github.com/jarodpeachey/netlify-comments#displaying-your-comments)
+- [🎨 Custom Configuration](https://github.com/jarodpeachey/netlify-comments#custom-configuration) 
 
 ## Getting Started
-### Setting up your website
-Triangle only works with Netlify, so you need to make sure you have your site hosted on Netlify. If you don't, you can follow the instructions here.
 
-Once your site is hosted on Netlify, you can continue below.
 ### Installing Packages
 
-To get started, just install `triangle-comments` and the Gatsby plugin, `gatsby-plugin-triangle-comments`.
+To get started, just install `netlify-comments` and the Gatsby plugin, `gatsby-plugin-netlify-comments`.
 
 **Using NPM:**
 ```
-npm install --save triangle-comments gatsby-plugin-triangle-comments
+npm install --save netlify-comments gatsby-plugin-netlify-comments
 ```
 
 **Using Yarn:**
 ```
-yarn add triangle-comments gatsby-plugin-triangle-comments
+yarn add netlify-comments gatsby-plugin-netlify-comments
 ```
 ### Configuration
-In order to use Triange with Gatsby, you need to add the plugin to your `gatsby-config.js` file at the root of your project.
+In order to use Netlify Comments with Gatsby, you need to add the plugin to your `gatsby-config.js` file at the root of your project.
 ```
 module.exports = {
 	...,
 	plugins: [
 		...,
 		{
-			resolve: 'gatsby-plugin-triangle-comments',
+			resolve: 'gatsby-plugin-netlify-comments',
 			options: {
 				...
 			},
@@ -49,7 +44,7 @@ module.exports = {
 	]
 }
 ```
-After updating your `gatsby-config.js` file, you need to add a few options to the configuration in order for Triangle to work.
+After updating your `gatsby-config.js` file, you need to add a few options to the configuration in order for netlify to work.
 
 First, you need a Netlify site ID. This can be found from your Netlify site dashboard by visiting **Settings > General > Site details > Site information**. Copy the value for **API ID** and store it in your environment variables as NETLIFY_SITE_ID. Then, use the environment variable as the value for the `siteID` options in `gatsby-config.js`
 ```
@@ -70,15 +65,15 @@ options: {
 ```
 
 ## Adding Comment Functionality
-Triangle is set up to automatically filter all comments by page and only display the ones for that page. This means that you can have as many comment forms as you'd like on your site.
+Netlify Comments is set up to automatically filter all comments by page and only display the ones for that page. This means that you can have as many comment forms as you'd like on your site.
 
-Triangle comes with 2 main components: `Form` and `Comments`. `Form` is the comment form, while `Comments` is the component that displays your comments (go figure 🤷‍♂️)
+The package comes with 2 main components: `Form` and `Comments`. `Form` is the comment form, while `Comments` is the component that displays your comments (go figure 🤷‍♂️)
 
 ### Adding a Form
 
 To add a comment form to your page, just import it 
 ```
-import { Form } from 'triangle-comments';
+import { Form } from 'netlify-comments';
 ```
 and add it wherever you please
 ```
@@ -90,7 +85,7 @@ This form can be customized, but we'll get to that later. First, you have to dis
 
 To display your comments, simply import the Comments compoment
 ```
-import { Comments } from 'triangle-comments';
+import { Comments } from 'netlify-comments';
 ```
 and add it wherever you'd like. Usually, this would be directly below the `Form`
 ```
@@ -101,14 +96,21 @@ and add it wherever you'd like. Usually, this would be directly below the `Form`
 ## Custom Configuration
 Because everyone likes to do things their own way.
 
-Triangle allows you to customize the stlying of your Form and your Comments components. Simply pass in a `color` prop to match Triangle to the theme of your website.
+Netlify Comments allows you to customize the styling of your Form and your Comments components by accepting style props.
+
+Netlify Comments uses `styled-components` for styling, so you can pass any valid `styled-components` syntax through these props.
+
+To customize the form, use these two props: the `inputStyles` prop and the `buttonStyles` prop.
 
 ```
-<Form color={customColor} />
-<Comments color={customColor} />
+<Form inputStyles={`padding: 0; background: red; outline: none;`} />
 ```
 
-As of now, that's the only styling option, but support for custom CSS and styling of the inputs, buttons and comment display is coming soon. Stay tuned!
+To customize the comment display, use these props: the `wrapperStyles`, `replyStyles`, `commentStyles`, and `nameStyles` props.
+
+```
+<Comments wrapperStyles={`padding: 16px; box-shadow: 2px 2px 6px -2px #00000090;`} />
+```
 
 ## Support
-Triangle is currently in beta stages, and is constantly evolving and improving. If you have an questions or need help setting up Triangle, you can open an issue on [Github](https://github.com/jarodpeachey/triangle-comments/issues) or email us at trianglecomments@gmail.com
+Netlify Comments is currently in beta stages, and is constantly evolving and improving. If you have any questions or need help setting up netlify, you can open an issue on [Github](https://github.com/jarodpeachey/netlify-comments/issues) or email me at jarodpeachey@gmail.com
