@@ -13,7 +13,7 @@
     "netlify-comments": "^0.0.4",
     "node-fetch": "^2.6.0"
   },
-  "gitHead": "c3a0af109d00eb254bd1836150b9768166784e6a",
+  "gitHead": "d3f25fdeaf53c44e730eeca8fbf95ebfae8ce795",
   "repository": {
     "type": "git",
     "url": "https://github.com/jarodpeachey/netlify-comments",
