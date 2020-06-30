@@ -28,7 +28,7 @@
     "node-fetch": "^2.6.0",
     "npm-link-shared": "^0.5.6"
   },
-  "gitHead": "a3067181977826db577afcb3221071d80c1a1b92",
+  "gitHead": "1c5cf7bb941239cf11acde6ef27692ca94d3351e",
   "publishConfig": {
     "registry": "https://registry.npmjs.com/jarodpeachey"
   },
