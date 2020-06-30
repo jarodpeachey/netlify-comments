@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-netlify-comments",
-  "version": "0.0.4",
+  "version": "0.0.5-alpha.0",
   "description": "A plugin for using comments in Gatsby",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "dotenv": "^8.2.0",
-    "netlify-comments": "^0.0.4",
+    "netlify-comments": "^0.0.5-alpha.0",
     "node-fetch": "^2.6.0"
   },
   "gitHead": "d3f25fdeaf53c44e730eeca8fbf95ebfae8ce795",
