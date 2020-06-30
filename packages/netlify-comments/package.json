@@ -1,6 +1,6 @@
 {
   "name": "netlify-comments",
-  "version": "0.1.6",
+  "version": "0.0.0",
   "description": "A drop-in solution for using comments on JAMstack sites.",
   "main": "index.js",
   "scripts": {
@@ -38,10 +38,7 @@
     "lodash.merge": "^4.6.2",
     "styled-components": "^5.1.0"
   },
-  "gitHead": "1c5cf7bb941239cf11acde6ef27692ca94d3351e",
-  "publishConfig": {
-    "registry": "https://registry.npmjs.com/jarodpeachey"
-  },
+  "gitHead": "f6dac4d812c542fd75a6eaf8851c010bc6b824be",
   "repository": {
     "type": "git",
     "url": "https://github.com/jarodpeachey/netlify-comments",
