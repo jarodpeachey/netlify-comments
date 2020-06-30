@@ -58,11 +58,11 @@ export const Form = ({ buttonStyles, inputStyles }) => {
 
   return (
     <div className='wrapper'>
-      {/* <form name='comments-queue' netlify netlify-honeypot='bot-field' hidden>
-          <input type='text' name='name' id='' />
-          <input type='email' name='email' id='' />
-          <textarea name='comment' id=''></textarea>
-        </form> */}
+          {/* <form name='comments-queue' netlify netlify-honeypot='bot-field' hidden>
+              <input type='text' name='name' id='' />
+              <input type='email' name='email' id='' />
+              <textarea name='comment' id=''></textarea>
+            </form> */}
       <br />
       <br />
       <h2>Add A Comment</h2>
