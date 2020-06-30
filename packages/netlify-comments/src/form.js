@@ -1,7 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import React, { useState, useContext } from 'react';
 import styled from 'styled-components';
-import './css/style.css';
 
 function encode(data) {
   return Object.keys(data)
@@ -57,8 +56,8 @@ export const Form = ({ buttonStyles, inputStyles }) => {
   };
 
   return (
-    <div className='wrapper'>
-          {/* <form name='comments-queue' netlify netlify-honeypot='bot-field' hidden>
+    <Wrapper>
+      {/* <form name='comments-queue' netlify netlify-honeypot='bot-field' hidden>
               <input type='text' name='name' id='' />
               <input type='email' name='email' id='' />
               <textarea name='comment' id=''></textarea>
@@ -75,8 +74,8 @@ export const Form = ({ buttonStyles, inputStyles }) => {
         onSubmit={handleSubmit}
       >
         <input type='hidden' name='form-name' value={formName} />
-        <div className='row'>
-          <div className='col col-6'>
+        <Row>
+          <ColumnSix className='col col-6'>
             <HiddenLabel htmlFor='path'>Path</HiddenLabel>
             <HiddenInput name='path' id='path' type='text' value={state.path} />
             <HiddenLabel htmlFor='parentCommentNumber'>
@@ -97,8 +96,8 @@ export const Form = ({ buttonStyles, inputStyles }) => {
               id='name'
               customStyles={inputStyles}
             />
-          </div>
-          <div className='col col-6'>
+          </ColumnSix>
+          <ColumnSix className='col col-6'>
             <Label htmlFor='email'>Email</Label>
             <Input
               color={color}
@@ -108,8 +107,8 @@ export const Form = ({ buttonStyles, inputStyles }) => {
               id='email'
               customStyles={inputStyles}
             />
-          </div>
-          <div className='col col-12'>
+          </ColumnSix>
+          <ColumnTwelve className='col col-12'>
             <Label htmlFor='comment'>Comment</Label>
             <TextArea
               color={color}
@@ -118,8 +117,8 @@ export const Form = ({ buttonStyles, inputStyles }) => {
               id='comment'
               customStyles={inputStyles}
             ></TextArea>
-          </div>
-          <div className='col col-12'>
+          </ColumnTwelve>
+          <ColumnTwelve className='col col-12'>
             <Button
               color={color}
               customStyles={buttonStyles}
@@ -128,12 +127,18 @@ export const Form = ({ buttonStyles, inputStyles }) => {
             >
               Post your comment
             </Button>
-          </div>
-        </div>
+          </ColumnTwelve>
+        </Row>
       </form>
-    </div>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.div`
+  * {
+    box-sizing: border-box;
+  }
+`;
 
 const Label = styled.label`
   margin-bottom: 8px;
@@ -235,4 +240,35 @@ const Button = styled.button`
   }
   ${(props) => props.customStyles}
   box-sizing: border-box;
+`;
+
+const Row = styled.div`
+  @media (min-width: 769px) {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin: 0 -12px 0 -12px !important;
+    width: calc(100% + 24px) !important;
+  }
+`;
+
+const ColumnSix = styled.div`
+  padding: 12px !important;
+  margin: 0 !important;
+  display: block !important;
+  padding: 12px;
+  @media (min-width: 769px) {
+    flex: none;
+    width: 50%;
+  }
+`;
+
+const ColumnTwelve = styled.div`
+  padding: 12px !important;
+  margin: 0 !important;
+  display: block !important;
+  padding: 12px;
+  @media (min-width: 769px) {
+    flex: none;
+    width: 100%;
+  }
 `;

@@ -15,7 +15,6 @@
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.1.5",
-    "@babel/core": "^7.10.3",
     "@babel/plugin-proposal-class-properties": "^7.10.1",
     "@babel/plugin-syntax-class-properties": "^7.10.1",
     "@babel/preset-env": "^7.10.3",
@@ -31,5 +30,9 @@
     "type": "git",
     "url": "https://github.com/jarodpeachey/netlify-comments",
     "directory": "packages/netlify-comments"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.4",
+    "@babel/core": "^7.10.4"
   }
 }
