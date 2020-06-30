@@ -4,31 +4,16 @@
   "description": "A plugin for using comments in Gatsby",
   "main": "index.js",
   "scripts": {
-    "dev": "",
-    "prestart": "npm-link-shared ./node_modules/netlify-comments/node_modules . react"
+    "dev": ""
   },
   "author": "Jarod Peachey",
   "license": "ISC",
-  "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.1.0",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.19.0",
-    "prettier": "^2.0.4"
-  },
-  "peerDependencies": {
-    "react": "^16.10.2",
-    "styled-components": "^5.0.1"
-  },
   "dependencies": {
     "dotenv": "^8.2.0",
-    "faunadb": "^2.14.1",
-    "gatsby": "^2.23.11",
     "netlify-comments": "^0.0.4-alpha.0",
-    "node-fetch": "^2.6.0",
-    "npm-link-shared": "^0.5.6"
+    "node-fetch": "^2.6.0"
   },
-  "gitHead": "978606ed2181b16f2d95dcebf0e02a35e677631f",
+  "gitHead": "74b3a5bd958b9b7a10262a29c9be8d54becd14a4",
   "repository": {
     "type": "git",
     "url": "https://github.com/jarodpeachey/netlify-comments",
