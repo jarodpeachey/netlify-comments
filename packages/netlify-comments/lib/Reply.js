@@ -5,7 +5,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.Reply = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -125,6 +125,8 @@ var Reply = function Reply(_ref) {
   }, "Reply"))))));
 };
 
+exports.Reply = Reply;
+
 var Container = _styledComponents["default"].div.withConfig({
   displayName: "Reply__Container",
   componentId: "sc-1r145mj-0"
@@ -212,6 +214,3 @@ var Button = _styledComponents["default"].button.withConfig({
 }, function (props) {
   return props.customCSS && (0, _styledComponents.css)(["", ""], props.customCSS);
 });
-
-var _default = Reply;
-exports["default"] = _default;

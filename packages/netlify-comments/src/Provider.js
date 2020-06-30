@@ -26,7 +26,9 @@ export class CommentsConstructor {
 export const CommentsProvider = ({ options, children }) => {
   const { apiKey, siteId } = options;
 
-  window.netlifyComments = new CommentsConstructor({ apiKey, siteId });
+  if (typeof window !== 'undefined') {
+    window.netlifyComments = new CommentsConstructor({ apiKey, siteId });
+  }
 
   const ctx = {
     apiKey,

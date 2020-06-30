@@ -6,7 +6,7 @@ function encode (data) {
     .join('&');
 }
 
-const Form = ({ formName }) => {
+export const Form = ({ formName }) => {
   const [state, setState] = useState({});
   const [parentCommentNumber, setParentCommentNumber] = useState(0);
 
@@ -133,5 +133,3 @@ const Form = ({ formName }) => {
     </section>
   );
 };
-
-export default Form;

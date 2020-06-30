@@ -17,7 +17,7 @@ var _reactHooks = require("@apollo/react-hooks");
 
 var _apolloBoost = require("apollo-boost");
 
-var _Comment = _interopRequireDefault(require("./Comment"));
+var _Comment = require("./Comment");
 
 var _formatDate = require("./utils/formatDate");
 
@@ -46,7 +46,7 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  {\n    allNetlifySubmissions {\n      edges {\n        node {\n          data {\n            comment\n            email\n            name\n            parentCommentNumber\n            path\n          }\n        }\n      }\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteral(["\n  {\n    allComments {\n      edges {\n        node {\n          data {\n            comment\n            email\n            name\n            parentCommentNumber\n            path\n          }\n        }\n      }\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -183,7 +183,7 @@ var Comments = function Comments() {
   }).sort(function (a, b) {
     return a.node ? a.node.number - b.node.number : a.number - b.number;
   }).map(function (comment) {
-    return /*#__PURE__*/_react["default"].createElement(_Comment["default"], {
+    return /*#__PURE__*/_react["default"].createElement(_Comment.Comment, {
       comment: comment.node.data // replies={stateComments
       //   .filter(
       //     (replyComment) =>

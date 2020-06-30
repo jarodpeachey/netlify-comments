@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { useStaticQuery, graphql } from 'gatsby';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
-import Comment from './Comment';
+import { Comment } from './Comment';
 import { formatDate } from './utils/formatDate';
 
 function encode(data) {
@@ -17,7 +17,7 @@ function encode(data) {
 
 const QUERY = gql`
   {
-    allNetlifySubmissions {
+    allComments {
       edges {
         node {
           data {

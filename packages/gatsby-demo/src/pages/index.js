@@ -61,7 +61,7 @@ const IndexPage = ({ data }) => {
         <Form  />
         <Comments  />
       </Container>
-      {/* <CommentSection comments={data.allNetlifySubmissions.edges} /> */}
+      {/* <CommentSection comments={data.allComments.edges} /> */}
       {/* <Form /> */}
     </>
   );
@@ -106,7 +106,7 @@ export const IndexQuery = graphql`
   }
 `;
 
-// allNetlifySubmissions(filter: { data: { path: { eq: $pathname } } }) {
+// allComments(filter: { data: { path: { eq: $pathname } } }) {
 //   edges {
 //     node {
 //       number

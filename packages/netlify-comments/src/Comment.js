@@ -6,7 +6,7 @@ import { formatDate } from './utils/formatDate';
 import { useStaticQuery, graphql } from 'gatsby';
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from 'apollo-boost';
-import Reply from './Reply';
+import { Reply } from './Reply';
 
 function encode(data) {
   return Object.keys(data)
@@ -45,7 +45,7 @@ const QUERY = gql`
   }
 `;
 
-const Comment = ({ comment, children, replies = [] }) => {
+export const Comment = ({ comment, children, replies = [] }) => {
   const [formOpen, setFormOpen] = useState(false);
   const [showReplies, setShowReplies] = useState(false);
   const [name, setName] = useState('');
@@ -206,8 +206,6 @@ const Comment = ({ comment, children, replies = [] }) => {
     </>
   );
 };
-
-export default Comment;
 
 const Wrapper = styled.div`
   margin: 12px 0;

@@ -5,7 +5,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.Comment = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -19,9 +19,7 @@ var _reactHooks = require("@apollo/react-hooks");
 
 var _apolloBoost = require("apollo-boost");
 
-var _Reply = _interopRequireDefault(require("./Reply"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+var _Reply = require("./Reply");
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
@@ -226,7 +224,7 @@ var Comment = function Comment(_ref) {
   }, "Reply"))))), replies && replies.length > 0 && /*#__PURE__*/_react["default"].createElement(_react["default"].Fragment, null, showReplies && /*#__PURE__*/_react["default"].createElement(RepliesWrapper, {
     color: "".concat(colors.primary, "30")
   }, replies.map(function (replyComment) {
-    return /*#__PURE__*/_react["default"].createElement(_Reply["default"], {
+    return /*#__PURE__*/_react["default"].createElement(_Reply.Reply, {
       colors: colors,
       buttonStyles: buttonStyles,
       inputStyles: inputStyles,
@@ -235,8 +233,7 @@ var Comment = function Comment(_ref) {
   }))));
 };
 
-var _default = Comment;
-exports["default"] = _default;
+exports.Comment = Comment;
 
 var Wrapper = _styledComponents["default"].div.withConfig({
   displayName: "Comment__Wrapper",

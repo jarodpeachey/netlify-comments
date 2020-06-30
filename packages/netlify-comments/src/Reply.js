@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { formatDate } from './utils/formatDate';
 
-const Reply = ({ comment, buttonStyles, inputStyles, colors }) => {
+export const Reply = ({ comment, buttonStyles, inputStyles, colors }) => {
   const [formOpen, setFormOpen] = useState(false);
   const [name, setName] = useState('');
   const [reply, setReply] = useState('');
@@ -193,5 +193,3 @@ const Button = styled.button`
       ${props.customCSS}
     `}
 `;
-
-export default Reply;

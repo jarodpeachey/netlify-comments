@@ -51,10 +51,14 @@ var CommentsProvider = function CommentsProvider(_ref) {
       children = _ref.children;
   var apiKey = options.apiKey,
       siteId = options.siteId;
-  window.netlifyComments = new CommentsConstructor({
-    apiKey: apiKey,
-    siteId: siteId
-  });
+
+  if (typeof window !== 'undefined') {
+    window.netlifyComments = new CommentsConstructor({
+      apiKey: apiKey,
+      siteId: siteId
+    });
+  }
+
   var ctx = {
     apiKey: apiKey,
     siteId: siteId
