@@ -1,4 +1,7 @@
 {
-  "plugins": ["@babel/plugin-proposal-class-properties"],
+  "plugins": [
+    "@babel/plugin-syntax-class-properties",
+    "@babel/plugin-proposal-class-properties"
+  ],
   "presets": [["babel-preset-gatsby"]]
 }

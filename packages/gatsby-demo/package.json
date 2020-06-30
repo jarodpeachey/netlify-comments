@@ -6,6 +6,7 @@
   "author": "Jarod Peachey <jarodpeachey@gmail.com>",
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "@babel/plugin-syntax-class-properties": "^7.10.1",
     "axios": "^0.19.2",
     "babel-preset-gatsby": "^0.4.12",
     "gatsby": "^2.23.11",
