@@ -41,8 +41,6 @@ var CommentsConstructor = function CommentsConstructor(props) {
 
   console.log(props);
   this.apiKey = props.apiKey;
-  this.faunaClient = props.faunaClient;
-  this.q = props.q;
   this.siteId = props.siteId;
 };
 

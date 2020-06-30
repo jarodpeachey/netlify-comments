@@ -172,46 +172,30 @@ var Comments = function Comments() {
     });
   };
 
-  return /*#__PURE__*/_react["default"].createElement("section", {
-    className: "bg-light",
-    id: "comment"
-  }, /*#__PURE__*/_react["default"].createElement("div", {
-    className: "container"
-  }, stateComments.filter(function (comment) {
-    return comment.node ? comment.node.data.parentCommentNumber == 'undefined' : comment.data.parentCommentNumber == 'undefined';
+  return /*#__PURE__*/_react["default"].createElement(_react["default"].Fragment, null, stateComments.filter(function (comment) {
+    return comment.node ? comment.node.data.parentCommentNumber === 'undefined' : comment.data.parentCommentNumber === 'undefined';
   }).sort(function (a, b) {
     return a.node ? a.node.number - b.node.number : a.number - b.number;
   }).length > 0 && /*#__PURE__*/_react["default"].createElement(_react["default"].Fragment, null, /*#__PURE__*/_react["default"].createElement("h2", {
     className: "title center-text"
   }, "Comments"), /*#__PURE__*/_react["default"].createElement(CommentsSection, null, stateComments.filter(function (comment) {
-    return comment.node ? comment.node.data.parentCommentNumber == 'undefined' : comment.data.parentCommentNumber == 'undefined';
+    return comment.node ? comment.node.data.parentCommentNumber === 'undefined' : comment.data.parentCommentNumber === 'undefined';
   }).sort(function (a, b) {
     return a.node ? a.node.number - b.node.number : a.number - b.number;
-  }).map(function (parentComment) {
-    if (parentComment.node ? parentComment.node.data.name !== 'placeholder' : parentComment.data.name) {
-      return /*#__PURE__*/_react["default"].createElement(_Comment["default"], {
-        key: parentComment.node ? parentComment.node.data.name : parentComment.data.name
-      }, /*#__PURE__*/_react["default"].createElement(CommentName, null, parentComment.node ? parentComment.node.data.name : parentComment.data.name), /*#__PURE__*/_react["default"].createElement(CommentDate, null, "on", ' ', parentComment.node ? parentComment.node.created_at : (0, _formatDate.formatDate)(parentComment.created_at)), /*#__PURE__*/_react["default"].createElement("p", null, parentComment.node ? parentComment.node.data.comment : parentComment.data.comment), /*#__PURE__*/_react["default"].createElement(CommentFooter, null, /*#__PURE__*/_react["default"].createElement("span", {
-        number: parentComment.node ? parentComment.node.number : parentComment.number,
-        name: "comment".concat(parentComment.node ? parentComment.node.data.name : parentComment.data.name),
-        onClick: handleReplyOpen
-      }, "Reply")), stateComments.filter(function (comment) {
-        return comment.node ? comment.node.data.parentCommentNumber !== 'undefined' : comment.data.parentCommentNumber !== 'undefined';
-      }).sort(function (a, b) {
-        return a.node ? a.node.number - b.node.number : a.number - b.number;
-      }).map(function (reply) {
-        if (reply.node ? reply.node.data.parentCommentNumber == parentComment.node.number : reply.data.parentCommentNumber == parentComment.number) {
-          return /*#__PURE__*/_react["default"].createElement(GrayComment, null, /*#__PURE__*/_react["default"].createElement(CommentName, null, reply.node ? reply.node.data.name : reply.data.name), /*#__PURE__*/_react["default"].createElement(CommentDate, null, "on", ' ', reply.node ? reply.node.created_at : (0, _formatDate.formatDate)(reply.created_at)), /*#__PURE__*/_react["default"].createElement("p", null, reply.node ? reply.node.data.comment : reply.data.comment), /*#__PURE__*/_react["default"].createElement(CommentFooter, null, /*#__PURE__*/_react["default"].createElement("span", {
-            number: parentComment.node ? parentComment.node.number : parentComment.number,
-            name: "reply".concat(reply.node ? reply.node.data.name : reply.data.name),
-            onClick: handleReplyOpen
-          }, "Reply")));
-        }
+  }).map(function (comment) {
+    return /*#__PURE__*/_react["default"].createElement(_Comment["default"], {
+      comment: comment.node.data // replies={stateComments
+      //   .filter(
+      //     (replyComment) =>
+      //       replyComment.node.data.parentComment ===
+      //       comment.node.data.id
+      //   )
+      //   .sort((a, b) =>
+      //     a.node ? a.node.id - b.node.id : a.id - b.id
+      //   )}
 
-        return null;
-      }));
-    }
-  })))));
+    });
+  }))));
 };
 
 exports.Comments = Comments;

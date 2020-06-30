@@ -1,3 +1,3 @@
-export * from './src/Provider';
-export * from './src/Form';
-export * from './src/Comments';
+export * from './lib/Provider';
+export * from './lib/Form';
+export * from './lib/Comments';

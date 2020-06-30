@@ -68,7 +68,8 @@ var QUERY = (0, _apolloBoost.gql)(_templateObject());
 var Comment = function Comment(_ref) {
   var comment = _ref.comment,
       children = _ref.children,
-      replies = _ref.replies;
+      _ref$replies = _ref.replies,
+      replies = _ref$replies === void 0 ? [] : _ref$replies;
 
   var _useState = (0, _react.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -130,24 +131,19 @@ var Comment = function Comment(_ref) {
       buttonStyles = _useState16[0],
       setButtonStyles = _useState16[1];
 
-  (0, _react.useEffect)(function () {
-    if (data) {
-      console.log('Styles: ', data.allStaticboxStyles);
-      setColors(_objectSpread({}, data.allStaticboxStyles.edges[0].node.data.color));
-      setLabelStyles(_objectSpread({}, data.allStaticboxStyles.edges[0].node.data.label));
-      setInputStyles(_objectSpread({}, data.allStaticboxStyles.edges[0].node.data.input));
-      setButtonStyles(_objectSpread({}, data.allStaticboxStyles.edges[0].node.data.button));
-    }
-  }, [data]);
+  console.log('COMMENT: ', comment);
   console.log(replies);
   var path = typeof window !== 'undefined' ? window.location.pathname : '/';
 
-  var handleNameChange = function handleNameChange(e) {
-    setName(e.target.value);
-  };
+  var _useState17 = (0, _react.useState)({}),
+      _useState18 = _slicedToArray(_useState17, 2),
+      state = _useState18[0],
+      setState = _useState18[1];
 
-  var handleReplyChange = function handleReplyChange(e) {
-    setReply(e.target.value);
+  var handleChange = function handleChange(e) {
+    var _objectSpread2;
+
+    setState(_objectSpread(_objectSpread({}, state), {}, (_objectSpread2 = {}, _defineProperty(_objectSpread2, e.target.name, e.target.value), _defineProperty(_objectSpread2, "path", state.path), _defineProperty(_objectSpread2, "parentCommentNumber", state.parentCommentNumber), _objectSpread2)));
   };
 
   var handleReplyOpen = function handleReplyOpen(e) {
@@ -158,12 +154,12 @@ var Comment = function Comment(_ref) {
     e.preventDefault();
   };
 
-  return /*#__PURE__*/_react["default"].createElement(_react["default"].Fragment, null, /*#__PURE__*/_react["default"].createElement(Wrapper, null, /*#__PURE__*/_react["default"].createElement(CommentTitle, null, comment.node.data.name), /*#__PURE__*/_react["default"].createElement(CommentDate, null, (0, _formatDate.formatDate)(comment.node.data.date)), /*#__PURE__*/_react["default"].createElement(CommentBody, null, comment.node.data.comment), /*#__PURE__*/_react["default"].createElement(CommentFooter, null, /*#__PURE__*/_react["default"].createElement(FooterLink, {
+  return /*#__PURE__*/_react["default"].createElement(_react["default"].Fragment, null, /*#__PURE__*/_react["default"].createElement(Wrapper, null, /*#__PURE__*/_react["default"].createElement(CommentTitle, null, comment.name), /*#__PURE__*/_react["default"].createElement(CommentBody, null, comment.comment), /*#__PURE__*/_react["default"].createElement(CommentFooter, null, /*#__PURE__*/_react["default"].createElement(FooterLink, {
     color: colors.primary,
     onClick: function onClick() {
       return setShowReplies(!showReplies);
     }
-  }, showReplies ? 'Collapse' : "(+".concat(replies.length, ") Expand")), /*#__PURE__*/_react["default"].createElement(FooterLink, {
+  }, showReplies && replies ? 'Collapse' : "(+".concat(replies.length, ") Expand")), /*#__PURE__*/_react["default"].createElement(FooterLink, {
     color: colors.primary,
     onClick: handleReplyOpen
   }, formOpen ? 'Cancel' : 'Reply')), formOpen && /*#__PURE__*/_react["default"].createElement("form", {
@@ -173,47 +169,60 @@ var Comment = function Comment(_ref) {
     style: {
       marginTop: 12,
       padding: 16,
-      background: '#dfdfdf'
+      background: '#f2f4f9'
     }
-  }, /*#__PURE__*/_react["default"].createElement("div", {
-    className: "custom-row"
-  }, /*#__PURE__*/_react["default"].createElement("div", {
-    className: "custom-col custom-col-12"
-  }, /*#__PURE__*/_react["default"].createElement(Input, {
-    customCSS: inputStyles.customCSS,
-    fontSize: inputStyles.fontSize,
-    color: colors.primary,
-    padding: {
-      vertical: inputStyles.paddingY,
-      horizontal: inputStyles.paddingX
-    },
-    onChange: handleNameChange,
+  }, /*#__PURE__*/_react["default"].createElement(Row, null, /*#__PURE__*/_react["default"].createElement(ColumnSix, {
+    className: "col col-6"
+  }, /*#__PURE__*/_react["default"].createElement(HiddenLabel, {
+    htmlFor: "path"
+  }, "Path"), /*#__PURE__*/_react["default"].createElement(HiddenInput, {
+    name: "path",
+    id: "path",
     type: "text",
+    value: state.path
+  }), /*#__PURE__*/_react["default"].createElement(HiddenLabel, {
+    htmlFor: "parentCommentNumber"
+  }, "Parent Comment Number"), /*#__PURE__*/_react["default"].createElement(HiddenInput, {
+    name: "parentCommentNumber",
+    id: "parentCommentNumber",
+    type: "text",
+    value: 0
+  }), /*#__PURE__*/_react["default"].createElement(HiddenLabel, {
+    htmlFor: "name"
+  }, "Name"), /*#__PURE__*/_react["default"].createElement(Input, {
+    onChange: handleChange,
+    type: "text",
+    placeholder: "Name",
     name: "name",
     id: "name",
-    placeholder: "Name",
-    value: name
-  })), /*#__PURE__*/_react["default"].createElement("div", {
-    className: "custom-col custom-col-12"
-  }, /*#__PURE__*/_react["default"].createElement(TextArea, {
-    customCSS: inputStyles.customCSS,
-    fontSize: inputStyles.fontSize,
-    color: colors.primary,
-    padding: {
-      vertical: inputStyles.paddingY,
-      horizontal: inputStyles.paddingX
-    },
-    onChange: handleReplyChange,
+    customStyles: inputStyles
+  })), /*#__PURE__*/_react["default"].createElement(ColumnSix, {
+    className: "col col-6"
+  }, /*#__PURE__*/_react["default"].createElement(HiddenLabel, {
+    htmlFor: "email"
+  }, "Email"), /*#__PURE__*/_react["default"].createElement(Input, {
+    placeholder: "Email",
+    onChange: handleChange,
+    type: "email",
+    name: "email",
+    id: "email",
+    customStyles: inputStyles
+  })), /*#__PURE__*/_react["default"].createElement(ColumnTwelve, {
+    className: "col col-12"
+  }, /*#__PURE__*/_react["default"].createElement(HiddenLabel, {
+    htmlFor: "comment"
+  }, "Comment"), /*#__PURE__*/_react["default"].createElement(TextArea, {
+    placeholder: "Comment",
+    onChange: handleChange,
     name: "comment",
     id: "comment",
-    placeholder: "Comment",
-    value: reply
-  })), /*#__PURE__*/_react["default"].createElement("div", {
-    className: "custom-col custom-col-12"
+    customStyles: inputStyles
+  })), /*#__PURE__*/_react["default"].createElement(ColumnTwelve, {
+    className: "col col-12"
   }, /*#__PURE__*/_react["default"].createElement(Button, {
-    customCSS: buttonStyles.customCSS,
-    background: colors.primary,
-    name: "button"
+    customStyles: buttonStyles,
+    name: "button",
+    type: "submit"
   }, "Reply"))))), replies && replies.length > 0 && /*#__PURE__*/_react["default"].createElement(_react["default"].Fragment, null, showReplies && /*#__PURE__*/_react["default"].createElement(RepliesWrapper, {
     color: "".concat(colors.primary, "30")
   }, replies.map(function (replyComment) {
@@ -232,96 +241,87 @@ exports["default"] = _default;
 var Wrapper = _styledComponents["default"].div.withConfig({
   displayName: "Comment__Wrapper",
   componentId: "sc-1i7nagk-0"
-})(["padding:14px;border:1px solid #dfdfdf;border-radius:3px;font-size:16px;background:white;outline:none;width:100%;margin:12px 0;background:", ";"], function (props) {
-  return props.gray ? '#dfdfdf' : 'white';
-});
+})(["margin:12px 0;padding:14px;border:1px solid #dfdfdf;border-radius:3px;font-size:16px;width:100%;"]);
 
 var CommentTitle = _styledComponents["default"].h3.withConfig({
   displayName: "Comment__CommentTitle",
   componentId: "sc-1i7nagk-1"
-})(["margin:0;"]);
+})(["color:#2c2f3b;margin:0;"]);
 
 var CommentDate = _styledComponents["default"].small.withConfig({
   displayName: "Comment__CommentDate",
   componentId: "sc-1i7nagk-2"
-})(["display:block;margin-bottom:12px;"]);
+})(["display:block;margin-bottom:12px;color:#4c5267;"]);
 
 var CommentBody = _styledComponents["default"].p.withConfig({
   displayName: "Comment__CommentBody",
   componentId: "sc-1i7nagk-3"
-})([""]);
+})(["color:#4c5267;"]);
 
 var CommentFooter = _styledComponents["default"].div.withConfig({
   displayName: "Comment__CommentFooter",
   componentId: "sc-1i7nagk-4"
-})(["font-size:16px;display:flex;justify-content:space-between;"]);
+})(["font-size:14px;color:#4c5267cc;display:flex;justify-content:space-between;"]);
 
 var FooterLink = _styledComponents["default"].span.withConfig({
   displayName: "Comment__FooterLink",
   componentId: "sc-1i7nagk-5"
-})([":hover{color:", ";cursor:pointer;}"], function (props) {
-  return props.color;
-});
+})([":hover{color:#4c8bf5;cursor:pointer;}"]);
 
 var Label = _styledComponents["default"].label.withConfig({
   displayName: "Comment__Label",
   componentId: "sc-1i7nagk-6"
-})(["margin-bottom:8px;display:block;font-size:", "px !important;", ""], function (props) {
-  return props.fontSize;
-}, function (props) {
-  return props.customCSS && (0, _styledComponents.css)(["", ""], props.customCSS);
-});
+})(["margin-bottom:8px;display:block;"]);
 
 var Input = _styledComponents["default"].input.withConfig({
   displayName: "Comment__Input",
   componentId: "sc-1i7nagk-7"
-})(["padding-top:", "px;padding-right:", "px;padding-left:", "px;padding-bottom:", "px;margin:0;width:100%;border:1px solid #e8e8e8;border-radius:5px;:focus{outline:1px ", " auto;}font-size:", "px !important;", ""], function (props) {
-  return props.padding.vertical;
-}, function (props) {
-  return props.padding.horizontal;
-}, function (props) {
-  return props.padding.horizontal;
-}, function (props) {
-  return props.padding.vertical;
-}, function (props) {
-  return props.color;
-}, function (props) {
-  return props.fontSize;
-}, function (props) {
-  return props.customCSS && (0, _styledComponents.css)(["", ""], props.customCSS);
+})(["padding:14px;border:1px solid #dfdfdf;border-radius:3px;font-size:16px;width:100%;outline:none;:hover{border:1px solid #4c8bf5;}:focus{border:1px solid #4c8bf5;outline:1px #4c8bf5 auto;}transition:0.15s;box-sizing:border-box;", ""], function (props) {
+  return props.customStyles;
 });
 
 var TextArea = _styledComponents["default"].textarea.withConfig({
   displayName: "Comment__TextArea",
   componentId: "sc-1i7nagk-8"
-})(["padding-top:", "px;padding-right:", "px;padding-left:", "px;padding-bottom:", "px;width:100%;font-size:", "px !important;margin:0;border:1px solid #e8e8e8;border-radius:5px;min-height:150px;resize:vertical;:focus{outline:1px ", " auto;}", ""], function (props) {
-  return props.padding.vertical;
-}, function (props) {
-  return props.padding.horizontal;
-}, function (props) {
-  return props.padding.horizontal;
-}, function (props) {
-  return props.padding.vertical;
-}, function (props) {
-  return props.fontSize;
-}, function (props) {
-  return props.color;
-}, function (props) {
-  return props.customCSS && (0, _styledComponents.css)(["", ""], props.customCSS);
+})(["padding:14px;border:1px solid #dfdfdf;border-radius:3px;font-size:16px;width:100%;outline:none;:hover{border:1px solid #4c8bf5;}:focus{border:1px solid #4c8bf5;outline:1px #4c8bf5 auto;}transition:0.15s;box-sizing:border-box;min-height:150px;resize:vertical;font-family:inherit !important;", ""], function (props) {
+  return props.customStyles;
 });
 
 var Button = _styledComponents["default"].button.withConfig({
   displayName: "Comment__Button",
   componentId: "sc-1i7nagk-9"
-})(["padding:12px;background:", ";color:white;border:none;outline:none;cursor:pointer;border-radius:5px;margin-left:auto;", ""], function (props) {
-  return props.background;
-}, function (props) {
-  return props.customCSS && (0, _styledComponents.css)(["", ""], props.customCSS);
+})(["padding:14px;margin-left:auto;display:block;border-radius:6px;background:#4c8bf5;border:1px solid #4c8bf5;cursor:pointer;text-transform:uppercase;color:white;font-size:14px;box-shadow:2px 2px 8px -4px #447ee0;transition:0.15s;:hover{background:#447ee0;border:1px solid #447ee0;box-shadow:3px 3px 20px -8px #447ee0;}", " box-sizing:border-box;"], function (props) {
+  return props.customStyles;
 });
+
+var HiddenLabel = _styledComponents["default"].label.withConfig({
+  displayName: "Comment__HiddenLabel",
+  componentId: "sc-1i7nagk-10"
+})(["height:0px;width:0px;background:transparent;color:transparent;border:none;outline:none;cursor:default;padding:0;margin:0;max-height:0px;min-height:0px;display:float;box-sizing:border-box;"]);
+
+var HiddenInput = _styledComponents["default"].input.withConfig({
+  displayName: "Comment__HiddenInput",
+  componentId: "sc-1i7nagk-11"
+})(["height:0px;width:0px;background:transparent;color:transparent;border:none;outline:none;cursor:default;padding:0;margin:0;max-height:0px;min-height:0px;display:float;box-sizing:border-box;"]);
 
 var RepliesWrapper = _styledComponents["default"].div.withConfig({
   displayName: "Comment__RepliesWrapper",
-  componentId: "sc-1i7nagk-10"
+  componentId: "sc-1i7nagk-12"
 })(["border-left:2px solid ", ";margin-left:32px;padding-left:32px;width:calc(100% - 64px);"], function (props) {
   return props.color;
 });
+
+var Row = _styledComponents["default"].div.withConfig({
+  displayName: "Comment__Row",
+  componentId: "sc-1i7nagk-13"
+})(["@media (min-width:769px){display:flex !important;flex-wrap:wrap !important;margin:0 -12px 0 -12px !important;width:calc(100% + 24px) !important;}"]);
+
+var ColumnSix = _styledComponents["default"].div.withConfig({
+  displayName: "Comment__ColumnSix",
+  componentId: "sc-1i7nagk-14"
+})(["padding:12px !important;margin:0 !important;display:block !important;padding:12px;@media (min-width:769px){flex:none;width:50%;}"]);
+
+var ColumnTwelve = _styledComponents["default"].div.withConfig({
+  displayName: "Comment__ColumnTwelve",
+  componentId: "sc-1i7nagk-15"
+})(["padding:12px !important;margin:0 !important;display:block !important;padding:12px;@media (min-width:769px){flex:none;width:100%;}"]);
