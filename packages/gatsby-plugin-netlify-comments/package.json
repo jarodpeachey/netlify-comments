@@ -28,7 +28,7 @@
     "node-fetch": "^2.6.0",
     "npm-link-shared": "^0.5.6"
   },
-  "gitHead": "3b22c534c6a44a10a3db1a4359bd22ad014aa0e7",
+  "gitHead": "ea7c6cc2964f7cd8548a4b94ccdbe172b50f74e3",
   "repository": {
     "type": "git",
     "url": "https://github.com/jarodpeachey/netlify-comments",
