@@ -31,6 +31,8 @@
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.1.5",
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "@babel/plugin-syntax-class-properties": "^7.10.1",
     "apollo-boost": "^0.4.7",
     "faunadb": "^2.14.1",
     "gatsby": "^2.15.36",
