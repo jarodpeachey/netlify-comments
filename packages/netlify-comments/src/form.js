@@ -10,7 +10,7 @@ function encode(data) {
 }
 
 export const Form = ({ buttonStyles, inputStyles }) => {
-  console.log(window.triangle);
+  console.log(typeof window !== 'undefined' && window.triangle);
 
   const color = 'tomato';
 
@@ -227,12 +227,11 @@ const Button = styled.button`
   color: white;
   font-size: 14px;
   box-shadow: 2px 2px 8px -4px #447ee0;
-  transition: .15s;
+  transition: 0.15s;
   :hover {
     background: #447ee0;
     border: 1px solid #447ee0;
-      box-shadow: 3px 3px 20px -8px #447ee0;
-
+    box-shadow: 3px 3px 20px -8px #447ee0;
   }
   ${(props) => props.customStyles}
   box-sizing: border-box;
