@@ -34,41 +34,63 @@ const QUERY = gql`
 `;
 
 export const Comments = () => {
-  const { loading, error, data } = useQuery(QUERY);
+  // const { loading, error, data } = useQuery(QUERY);
 
-  console.log(loading, error, data);
+  // console.log(loading, error, data);
+
+  const data = useStaticQuery(graphql`
+    query myQuery {
+      allComments {
+        edges {
+          node {
+            data {
+              comment
+              email
+              name
+              parentCommentNumber
+              path
+            }
+          }
+        }
+      }
+    }
+  `);
 
   const [state, setState] = React.useState({});
-  const [stateComments, setStateComments] = React.useState(
-    loading ? [] : data && data.length ? Object.values(data)[0].edges : []
-  );
+  const [stateComments, setStateComments] = React.useState([]);
 
   // useEffect(() => {
-  //   const newComments = fetchNewComments().then((res) => {
-  //     res.json().then((json) => {
-  //       console.log('Sucess getting new comments: ', json);
-  //       const insideNewComments = [];
-
-  //       Object.values(json).forEach((submission) => {
-  //         if (
-  //           submission.data.path === window.location.pathname &&
-  //           submission.data.name !== 'placeholder' &&
-  //           submission.data.comment !== 'placeholder'
-  //         ) {
-  //           insideNewComments.push(submission);
-  //         }
-  //       });
-
-  //       if (stateComments !== insideNewComments) {
-  //         setStateComments(insideNewComments);
-  //       }
-  //     });
-  //   });
-
-  //   if (state.path !== window.location.pathname) {
-  //     setState({ path: window.location.pathname });
+  //   if (data) {
+  //     setStateComments(Object.values(data)[0].edges);
   //   }
-  // }, []);
+  // }, [data]);
+
+  // // useEffect(() => {
+  // //   const newComments = fetchNewComments().then((res) => {
+  // //     res.json().then((json) => {
+  // //       console.log('Sucess getting new comments: ', json);
+  // //       const insideNewComments = [];
+
+  // //       Object.values(json).forEach((submission) => {
+  // //         if (
+  // //           submission.data.path === window.location.pathname &&
+  // //           submission.data.name !== 'placeholder' &&
+  // //           submission.data.comment !== 'placeholder'
+  // //         ) {
+  // //           insideNewComments.push(submission);
+  // //         }
+  // //       });
+
+  // //       if (stateComments !== insideNewComments) {
+  // //         setStateComments(insideNewComments);
+  // //       }
+  // //     });
+  // //   });
+
+  // //   if (state.path !== window.location.pathname) {
+  // //     setState({ path: window.location.pathname });
+  // //   }
+  // // }, []);
 
   useEffect(() => {
     if (data) {

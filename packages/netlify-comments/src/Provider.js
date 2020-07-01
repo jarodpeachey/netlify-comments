@@ -1,7 +1,7 @@
 import { useStaticQuery } from 'gatsby';
 import React from 'react';
-import { ApolloProvider } from '@apollo/react-hooks';
-import { client } from './apollo/client';
+// import { ApolloProvider } from '@apollo/react-hooks';
+// import { client } from './apollo/client';
 
 export const CommentsContext = React.createContext({});
 
@@ -36,10 +36,10 @@ export const CommentsProvider = ({ options, children }) => {
   };
 
   return (
-    <ApolloProvider client={client}>
+    // <ApolloProvider client={client}>
       <CommentsContext.Provider value={{ ...ctx }}>
         {children}
       </CommentsContext.Provider>
-    </ApolloProvider>
+    // </ApolloProvider>
   );
 };
