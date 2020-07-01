@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint \"./packages/**/*{.js,.jsx}\"",
-    "compile": "npx babel src --out-dir lib"
+    "compile": "cross-env NODE_ENV=production npx babel src --out-dir lib"
   },
   "author": "Jarod Peachey",
   "license": "ISC",
@@ -21,7 +21,10 @@
     "@babel/preset-env": "^7.10.3",
     "@babel/preset-react": "^7.10.1",
     "apollo-boost": "^0.4.7",
+    "babel-plugin-optimize-hook-destructuring": "^1.2.0",
+    "babel-plugin-remove-graphql-queries": "^2.9.9",
     "babel-plugin-styled-components": "^1.10.7",
+    "babel-preset-gatsby": "^0.4.12",
     "isomorphic-fetch": "^2.2.1",
     "lodash.merge": "^4.6.2",
     "styled-components": "^5.1.0"

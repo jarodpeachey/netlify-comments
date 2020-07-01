@@ -59,39 +59,6 @@ export const Comments = () => {
   const [state, setState] = React.useState({});
   const [stateComments, setStateComments] = React.useState([]);
 
-  // useEffect(() => {
-  //   if (data) {
-  //     setStateComments(Object.values(data)[0].edges);
-  //   }
-  // }, [data]);
-
-  // // useEffect(() => {
-  // //   const newComments = fetchNewComments().then((res) => {
-  // //     res.json().then((json) => {
-  // //       console.log('Sucess getting new comments: ', json);
-  // //       const insideNewComments = [];
-
-  // //       Object.values(json).forEach((submission) => {
-  // //         if (
-  // //           submission.data.path === window.location.pathname &&
-  // //           submission.data.name !== 'placeholder' &&
-  // //           submission.data.comment !== 'placeholder'
-  // //         ) {
-  // //           insideNewComments.push(submission);
-  // //         }
-  // //       });
-
-  // //       if (stateComments !== insideNewComments) {
-  // //         setStateComments(insideNewComments);
-  // //       }
-  // //     });
-  // //   });
-
-  // //   if (state.path !== window.location.pathname) {
-  // //     setState({ path: window.location.pathname });
-  // //   }
-  // // }, []);
-
   useEffect(() => {
     if (data) {
       const comments = Object.values(data)[0].edges;

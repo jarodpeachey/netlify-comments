@@ -1,11 +1,19 @@
 "use strict";
 
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+var _interopRequireWildcard = require("@babel/runtime/helpers/interopRequireWildcard");
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.Comment = void 0;
+
+var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
+
+var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+
+var _taggedTemplateLiteral2 = _interopRequireDefault(require("@babel/runtime/helpers/taggedTemplateLiteral"));
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -21,30 +29,12 @@ var _apolloBoost = require("apollo-boost");
 
 var _Reply = require("./Reply");
 
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return; var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  {\n    allStaticboxStyles {\n      edges {\n        node {\n          data {\n            button {\n              customCSS\n            }\n            color {\n              primary\n              secondary\n              text\n            }\n            input {\n              customCSS\n              fontSize\n              paddingX\n              paddingY\n            }\n            label {\n              customCSS\n              fontSize\n            }\n          }\n        }\n      }\n    }\n  }\n"]);
+  var data = (0, _taggedTemplateLiteral2["default"])(["\n  {\n    allStaticboxStyles {\n      edges {\n        node {\n          data {\n            button {\n              customCSS\n            }\n            color {\n              primary\n              secondary\n              text\n            }\n            input {\n              customCSS\n              fontSize\n              paddingX\n              paddingY\n            }\n            label {\n              customCSS\n              fontSize\n            }\n          }\n        }\n      }\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -52,8 +42,6 @@ function _templateObject() {
 
   return data;
 }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 function encode(data) {
   return Object.keys(data).map(function (key) {
@@ -70,22 +58,22 @@ var Comment = function Comment(_ref) {
       replies = _ref$replies === void 0 ? [] : _ref$replies;
 
   var _useState = (0, _react.useState)(false),
-      _useState2 = _slicedToArray(_useState, 2),
+      _useState2 = (0, _slicedToArray2["default"])(_useState, 2),
       formOpen = _useState2[0],
       setFormOpen = _useState2[1];
 
   var _useState3 = (0, _react.useState)(false),
-      _useState4 = _slicedToArray(_useState3, 2),
+      _useState4 = (0, _slicedToArray2["default"])(_useState3, 2),
       showReplies = _useState4[0],
       setShowReplies = _useState4[1];
 
   var _useState5 = (0, _react.useState)(''),
-      _useState6 = _slicedToArray(_useState5, 2),
+      _useState6 = (0, _slicedToArray2["default"])(_useState5, 2),
       name = _useState6[0],
       setName = _useState6[1];
 
   var _useState7 = (0, _react.useState)(''),
-      _useState8 = _slicedToArray(_useState7, 2),
+      _useState8 = (0, _slicedToArray2["default"])(_useState7, 2),
       reply = _useState8[0],
       setReply = _useState8[1];
 
@@ -100,7 +88,7 @@ var Comment = function Comment(_ref) {
     primary: '#fbbe76',
     secondary: '#aacd67'
   }),
-      _useState10 = _slicedToArray(_useState9, 2),
+      _useState10 = (0, _slicedToArray2["default"])(_useState9, 2),
       colors = _useState10[0],
       setColors = _useState10[1];
 
@@ -108,7 +96,7 @@ var Comment = function Comment(_ref) {
     fontSize: 16,
     customCSS: 'margin: 0;'
   }),
-      _useState12 = _slicedToArray(_useState11, 2),
+      _useState12 = (0, _slicedToArray2["default"])(_useState11, 2),
       labelStyles = _useState12[0],
       setLabelStyles = _useState12[1];
 
@@ -118,14 +106,14 @@ var Comment = function Comment(_ref) {
     paddingX: 16,
     paddingY: 16
   }),
-      _useState14 = _slicedToArray(_useState13, 2),
+      _useState14 = (0, _slicedToArray2["default"])(_useState13, 2),
       inputStyles = _useState14[0],
       setInputStyles = _useState14[1];
 
   var _useState15 = (0, _react.useState)({
     customCSS: 'margin: 0;'
   }),
-      _useState16 = _slicedToArray(_useState15, 2),
+      _useState16 = (0, _slicedToArray2["default"])(_useState15, 2),
       buttonStyles = _useState16[0],
       setButtonStyles = _useState16[1];
 
@@ -134,14 +122,14 @@ var Comment = function Comment(_ref) {
   var path = typeof window !== 'undefined' ? window.location.pathname : '/';
 
   var _useState17 = (0, _react.useState)({}),
-      _useState18 = _slicedToArray(_useState17, 2),
+      _useState18 = (0, _slicedToArray2["default"])(_useState17, 2),
       state = _useState18[0],
       setState = _useState18[1];
 
   var handleChange = function handleChange(e) {
     var _objectSpread2;
 
-    setState(_objectSpread(_objectSpread({}, state), {}, (_objectSpread2 = {}, _defineProperty(_objectSpread2, e.target.name, e.target.value), _defineProperty(_objectSpread2, "path", state.path), _defineProperty(_objectSpread2, "parentCommentNumber", state.parentCommentNumber), _objectSpread2)));
+    setState(_objectSpread(_objectSpread({}, state), {}, (_objectSpread2 = {}, (0, _defineProperty2["default"])(_objectSpread2, e.target.name, e.target.value), (0, _defineProperty2["default"])(_objectSpread2, "path", state.path), (0, _defineProperty2["default"])(_objectSpread2, "parentCommentNumber", state.parentCommentNumber), _objectSpread2)));
   };
 
   var handleReplyOpen = function handleReplyOpen(e) {
