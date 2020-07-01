@@ -9,10 +9,6 @@ var _gatsby = require("gatsby");
 
 var _react = _interopRequireDefault(require("react"));
 
-var _reactHooks = require("@apollo/react-hooks");
-
-var _client = require("./apollo/client");
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -23,6 +19,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+// import { ApolloProvider } from '@apollo/react-hooks';
+// import { client } from './apollo/client';
 var CommentsContext = /*#__PURE__*/_react["default"].createContext({});
 /**
  * Manages the shopping cart, which is persisted in local storage.
@@ -63,11 +61,14 @@ var CommentsProvider = function CommentsProvider(_ref) {
     apiKey: apiKey,
     siteId: siteId
   };
-  return /*#__PURE__*/_react["default"].createElement(_reactHooks.ApolloProvider, {
-    client: _client.client
-  }, /*#__PURE__*/_react["default"].createElement(CommentsContext.Provider, {
-    value: _objectSpread({}, ctx)
-  }, children));
+  return (
+    /*#__PURE__*/
+    // <ApolloProvider client={client}>
+    _react["default"].createElement(CommentsContext.Provider, {
+      value: _objectSpread({}, ctx)
+    }, children) // </ApolloProvider>
+
+  );
 };
 
 exports.CommentsProvider = CommentsProvider;

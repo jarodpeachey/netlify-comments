@@ -45,6 +45,16 @@ function _iterableToArrayLimit(arr, i) { if (typeof Symbol === "undefined" || !(
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
+function _templateObject2() {
+  var data = _taggedTemplateLiteral(["\n    query myQuery {\n      allComments {\n        edges {\n          node {\n            data {\n              comment\n              email\n              name\n              parentCommentNumber\n              path\n            }\n          }\n        }\n      }\n    }\n  "]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject() {
   var data = _taggedTemplateLiteral(["\n  {\n    allComments {\n      edges {\n        node {\n          data {\n            comment\n            email\n            name\n            parentCommentNumber\n            path\n          }\n        }\n      }\n    }\n  }\n"]);
 
@@ -66,44 +76,46 @@ function encode(data) {
 var QUERY = (0, _apolloBoost.gql)(_templateObject());
 
 var Comments = function Comments() {
-  var _useQuery = (0, _reactHooks.useQuery)(QUERY),
-      loading = _useQuery.loading,
-      error = _useQuery.error,
-      data = _useQuery.data;
-
-  console.log(loading, error, data);
+  // const { loading, error, data } = useQuery(QUERY);
+  // console.log(loading, error, data);
+  var data = (0, _gatsby.useStaticQuery)((0, _gatsby.graphql)(_templateObject2()));
 
   var _React$useState = _react["default"].useState({}),
       _React$useState2 = _slicedToArray(_React$useState, 2),
       state = _React$useState2[0],
       setState = _React$useState2[1];
 
-  var _React$useState3 = _react["default"].useState(loading ? [] : data && data.length ? Object.values(data)[0].edges : []),
+  var _React$useState3 = _react["default"].useState([]),
       _React$useState4 = _slicedToArray(_React$useState3, 2),
       stateComments = _React$useState4[0],
       setStateComments = _React$useState4[1]; // useEffect(() => {
-  //   const newComments = fetchNewComments().then((res) => {
-  //     res.json().then((json) => {
-  //       console.log('Sucess getting new comments: ', json);
-  //       const insideNewComments = [];
-  //       Object.values(json).forEach((submission) => {
-  //         if (
-  //           submission.data.path === window.location.pathname &&
-  //           submission.data.name !== 'placeholder' &&
-  //           submission.data.comment !== 'placeholder'
-  //         ) {
-  //           insideNewComments.push(submission);
-  //         }
-  //       });
-  //       if (stateComments !== insideNewComments) {
-  //         setStateComments(insideNewComments);
-  //       }
-  //     });
-  //   });
-  //   if (state.path !== window.location.pathname) {
-  //     setState({ path: window.location.pathname });
+  //   if (data) {
+  //     setStateComments(Object.values(data)[0].edges);
   //   }
-  // }, []);
+  // }, [data]);
+  // // useEffect(() => {
+  // //   const newComments = fetchNewComments().then((res) => {
+  // //     res.json().then((json) => {
+  // //       console.log('Sucess getting new comments: ', json);
+  // //       const insideNewComments = [];
+  // //       Object.values(json).forEach((submission) => {
+  // //         if (
+  // //           submission.data.path === window.location.pathname &&
+  // //           submission.data.name !== 'placeholder' &&
+  // //           submission.data.comment !== 'placeholder'
+  // //         ) {
+  // //           insideNewComments.push(submission);
+  // //         }
+  // //       });
+  // //       if (stateComments !== insideNewComments) {
+  // //         setStateComments(insideNewComments);
+  // //       }
+  // //     });
+  // //   });
+  // //   if (state.path !== window.location.pathname) {
+  // //     setState({ path: window.location.pathname });
+  // //   }
+  // // }, []);
 
 
   (0, _react.useEffect)(function () {
