@@ -18,7 +18,7 @@
 //   console.log('OPTIONS: ', options);
 //   window.netlifyComments = new NetlifyComments({
 //     apiKey: options.apiKey,
-//     siteID: options.siteID,
+//     siteId: options.siteId,
 //   });
 // };
 

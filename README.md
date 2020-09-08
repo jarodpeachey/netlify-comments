@@ -46,11 +46,11 @@ module.exports = {
 ```
 After updating your `gatsby-config.js` file, you need to add a few options to the configuration in order for netlify to work.
 
-First, you need a Netlify site ID. This can be found from your Netlify site dashboard by visiting **Settings > General > Site details > Site information**. Copy the value for **API ID** and store it in your environment variables as NETLIFY_SITE_ID. Then, use the environment variable as the value for the `siteID` options in `gatsby-config.js`
+First, you need a Netlify site ID. This can be found from your Netlify site dashboard by visiting **Settings > General > Site details > Site information**. Copy the value for **API ID** and store it in your environment variables as NETLIFY_SITE_ID. Then, use the environment variable as the value for the `siteId` options in `gatsby-config.js`
 ```
 options: {
 	...,
-	siteID: process.env.NETLIFY_SITE_ID
+	siteId: process.env.NETLIFY_SITE_ID
 }
 ```
 The second mandatory value in the options object is the `apiKey`. This must be created manually in Netlify. Visit your **User Settings > Applications** at this link: [(Personal Access Tokens)](https://app.netlify.com/user/applications#personal-access-tokens)
@@ -59,7 +59,7 @@ Click "New Access Token" and follow the steps to generate a new API token. Copy 
 ```
 options: {
 	...,
-	siteID: process.env.NETLIFY_SITE_ID,
+	siteId: process.env.NETLIFY_SITE_ID,
 	apiKey: process.env.NETLIFY_TOKEN
 }
 ```

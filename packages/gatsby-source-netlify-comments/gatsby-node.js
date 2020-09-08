@@ -16,13 +16,13 @@ exports.sourceNodes = async (
 ) => {
   const { createNode } = actions;
 
-  const { siteID, color, apiKey } = options;
+  const { siteId, color, apiKey } = options;
 
   if (!apiKey) {
     reporter.panicOnBuild('Please define a Netlify access token');
   }
 
-  if (!siteID) {
+  if (!siteId) {
     reporter.panicOnBuild('Please define a site ID');
   }
 
@@ -51,7 +51,7 @@ exports.sourceNodes = async (
 
   try {
     await fetch(
-      `https://api.netlify.com/api/v1/sites/${siteID}/submissions/?access_token=${apiKey}`
+      `https://api.netlify.com/api/v1/sites/${siteId}/submissions/?access_token=${apiKey}`
     ).then((res) => {
       res.json().then((json) => {
         console.log(typeof json);
