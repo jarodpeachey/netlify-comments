@@ -3,7 +3,7 @@
   "version": "0.0.5",
   "description": "A drop-in solution for using comments on JAMstack sites.",
   "main": "index.js",
-  "private": true,
+  "private": false,
   "scripts": {
     "lint": "eslint \"./packages/**/*{.js,.jsx}\"",
     "compile": "npx babel src --out-dir lib"
