@@ -3,7 +3,7 @@
   "description": "A modern, blazing fast and intuitive CMS",
   "main": "index.js",
   "version": "0.0.0",
-  "private": false,
+  "private": true,
   "author": "Jarod Peachey <jarodpeachey@gmail.com> (@jarod_peachey)",
   "license": "MIT",
   "workspaces": [

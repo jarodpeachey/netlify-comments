@@ -119,7 +119,7 @@ To customize the form, use these two props: the `inputStyles` prop and the `butt
 <Form inputStyles={`padding: 0; background: red; outline: none;`} />
 ```
 
-To customize the comment display, use these props: the `wrapperStyles`, `replyStyles`, `commentStyles`, and `nameStyles` props.
+To customize the comment display, use these props: the `commentStyles` and `replyStyles` props.
 
 ```
 <Comments wrapperStyles={`padding: 16px; box-shadow: 2px 2px 6px -2px #00000090;`} />

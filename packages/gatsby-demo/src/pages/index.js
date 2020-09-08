@@ -3,7 +3,7 @@ import React from 'react';
 // import Image from '../components/image';
 // import BackgroundImage from 'gatsby-background-image';
 import styled from 'styled-components';
-import { Form, Comments } from 'netlify-comments';
+import { Form, Comments } from 'gatsby-plugin-netlify-comments';
 import SEO from '../components/seo';
 import '../components/style.css';
 
@@ -58,8 +58,8 @@ const IndexPage = ({ data }) => {
         </Container>
       </Hero>
       <Container>
-        <Form  />
-        <Comments  />
+        <Form />
+        <Comments />
       </Container>
       {/* <CommentSection comments={data.allComments.edges} /> */}
       {/* <Form /> */}

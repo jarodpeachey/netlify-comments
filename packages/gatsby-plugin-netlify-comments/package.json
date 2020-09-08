@@ -1,23 +1,45 @@
 {
   "name": "gatsby-plugin-netlify-comments",
   "version": "0.0.5",
-  "description": "A plugin for using comments in Gatsby",
+  "description": "A drop-in solution for using comments on JAMstack sites.",
   "main": "index.js",
+  "private": true,
   "scripts": {
-    "dev": ""
+    "lint": "eslint \"./packages/**/*{.js,.jsx}\"",
+    "compile": "npx babel src --out-dir lib"
   },
   "author": "Jarod Peachey",
   "license": "ISC",
+  "peerDependencies": {
+    "react": ">=16.8",
+    "react-dom": ">=16.8",
+    "styled-components": ">=4.1"
+  },
   "dependencies": {
-    "dotenv": "^8.2.0",
+    "@apollo/react-hooks": "^3.1.5",
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "@babel/plugin-syntax-class-properties": "^7.10.1",
+    "@babel/preset-env": "^7.10.3",
+    "@babel/preset-react": "^7.10.1",
+    "apollo-boost": "^0.4.7",
+    "babel-plugin-optimize-hook-destructuring": "^1.2.0",
+    "babel-plugin-remove-graphql-queries": "^2.9.9",
+    "babel-plugin-styled-components": "^1.10.7",
+    "babel-preset-gatsby": "^0.4.12",
+    "eslint-plugin-react": "^7.19.0",
+    "gatsby": "^2.23.20",
     "isomorphic-fetch": "^2.2.1",
-    "netlify-comments": "^0.0.5",
-    "node-fetch": "^2.6.0"
+    "lodash.merge": "^4.6.2",
+    "styled-components": "^5.1.0"
   },
   "gitHead": "34a3bd43164bf1bbd7482554822e3a42f0afa923",
   "repository": {
     "type": "git",
     "url": "https://github.com/jarodpeachey/netlify-comments",
     "directory": "packages/gatsby-plugin-netlify-comments"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.4",
+    "@babel/core": "^7.10.4"
   }
 }

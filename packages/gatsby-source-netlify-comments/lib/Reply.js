@@ -117,39 +117,39 @@ exports.Reply = Reply;
 
 var Container = _styledComponents["default"].div.withConfig({
   displayName: "Reply__Container",
-  componentId: "sc-1r145mj-0"
+  componentId: "sc-1c0lajy-0"
 })([""]);
 
 var Wrapper = _styledComponents["default"].div.withConfig({
   displayName: "Reply__Wrapper",
-  componentId: "sc-1r145mj-1"
+  componentId: "sc-1c0lajy-1"
 })(["padding:14px;border:1px solid #dfdfdf;border-radius:3px;font-size:16px;background:white;outline:none;width:100%;margin:12px 0;background:", ";"], function (props) {
   return props.gray ? 'white' : 'white';
 });
 
 var CommentTitle = _styledComponents["default"].h3.withConfig({
   displayName: "Reply__CommentTitle",
-  componentId: "sc-1r145mj-2"
+  componentId: "sc-1c0lajy-2"
 })(["margin:0;"]);
 
 var CommentDate = _styledComponents["default"].small.withConfig({
   displayName: "Reply__CommentDate",
-  componentId: "sc-1r145mj-3"
+  componentId: "sc-1c0lajy-3"
 })(["display:block;margin-bottom:12px;"]);
 
 var CommentBody = _styledComponents["default"].p.withConfig({
   displayName: "Reply__CommentBody",
-  componentId: "sc-1r145mj-4"
+  componentId: "sc-1c0lajy-4"
 })([""]);
 
 var CommentFooter = _styledComponents["default"].div.withConfig({
   displayName: "Reply__CommentFooter",
-  componentId: "sc-1r145mj-5"
+  componentId: "sc-1c0lajy-5"
 })(["font-size:14px;"]);
 
 var Label = _styledComponents["default"].label.withConfig({
   displayName: "Reply__Label",
-  componentId: "sc-1r145mj-6"
+  componentId: "sc-1c0lajy-6"
 })(["margin-bottom:8px;display:block;font-size:", "px !important;", ""], function (props) {
   return props.fontSize;
 }, function (props) {
@@ -158,7 +158,7 @@ var Label = _styledComponents["default"].label.withConfig({
 
 var Input = _styledComponents["default"].input.withConfig({
   displayName: "Reply__Input",
-  componentId: "sc-1r145mj-7"
+  componentId: "sc-1c0lajy-7"
 })(["padding-top:", "px;padding-right:", "px;padding-left:", "px;padding-bottom:", "px;margin:0;width:100%;border:1px solid #e8e8e8;border-radius:5px;:focus{outline:1px ", " auto;}font-size:", "px !important;", ""], function (props) {
   return props.padding.vertical;
 }, function (props) {
@@ -177,7 +177,7 @@ var Input = _styledComponents["default"].input.withConfig({
 
 var TextArea = _styledComponents["default"].textarea.withConfig({
   displayName: "Reply__TextArea",
-  componentId: "sc-1r145mj-8"
+  componentId: "sc-1c0lajy-8"
 })(["padding-top:", "px;padding-right:", "px;padding-left:", "px;padding-bottom:", "px;width:100%;font-size:", "px !important;margin:0;border:1px solid #e8e8e8;border-radius:5px;min-height:150px;resize:vertical;:focus{outline:1px ", " auto;}", ""], function (props) {
   return props.padding.vertical;
 }, function (props) {
@@ -196,7 +196,7 @@ var TextArea = _styledComponents["default"].textarea.withConfig({
 
 var Button = _styledComponents["default"].button.withConfig({
   displayName: "Reply__Button",
-  componentId: "sc-1r145mj-9"
+  componentId: "sc-1c0lajy-9"
 })(["padding:12px;background:", ";color:white;border:none;outline:none;cursor:pointer;border-radius:5px;margin-left:auto;", ""], function (props) {
   return props.background;
 }, function (props) {

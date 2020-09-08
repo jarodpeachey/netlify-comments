@@ -172,57 +172,57 @@ exports.Comments = Comments;
 
 var GrayForm = _styledComponents["default"].form.withConfig({
   displayName: "Comments__GrayForm",
-  componentId: "sc-2u4f5b-0"
+  componentId: "sc-159x4qx-0"
 })(["background:#f7f7f7;padding:16px;margin-top:12px;"]);
 
 var Label = _styledComponents["default"].label.withConfig({
   displayName: "Comments__Label",
-  componentId: "sc-2u4f5b-1"
+  componentId: "sc-159x4qx-1"
 })(["margin-bottom:8px;display:block;font-weight:500;"]);
 
 var Error = _styledComponents["default"].small.withConfig({
   displayName: "Comments__Error",
-  componentId: "sc-2u4f5b-2"
+  componentId: "sc-159x4qx-2"
 })(["display:block;margin-top:8px;color:tomato;"]);
 
 var Input = _styledComponents["default"].input.withConfig({
   displayName: "Comments__Input",
-  componentId: "sc-2u4f5b-3"
+  componentId: "sc-159x4qx-3"
 })(["padding:14px;border:2px solid white;box-shadow:1px 1px 3px 0px #e7e7e7;font-size:16px;outline:none;width:100%;:focus{border:2px solid #264966;}"]);
 
 var GrayTextArea = _styledComponents["default"].textarea.withConfig({
   displayName: "Comments__GrayTextArea",
-  componentId: "sc-2u4f5b-4"
+  componentId: "sc-159x4qx-4"
 })(["padding:14px;background:#f7f7f7;border:2px solid #f7f7f7;font-size:16px;outline:none;width:100%;resize:vertical;min-height:100px;vertical-align:top;:focus{border:2px solid #264966;}"]);
 
 var GrayInput = _styledComponents["default"].input.withConfig({
   displayName: "Comments__GrayInput",
-  componentId: "sc-2u4f5b-5"
+  componentId: "sc-159x4qx-5"
 })(["padding:14px;background:#f7f7f7;border:2px solid #f7f7f7;font-size:16px;margin-bottom:4px;outline:none;width:100%;:focus{border:2px solid #264966;}"]);
 
 var HiddenLabel = _styledComponents["default"].label.withConfig({
   displayName: "Comments__HiddenLabel",
-  componentId: "sc-2u4f5b-6"
+  componentId: "sc-159x4qx-6"
 })(["height:0px !important;width:0px !important;background:transparent !important;color:transparent !important;border:none !important;outline:none !important;cursor:default !important;padding:0 !important;margin:0 !important;max-height:0px !important;min-height:0px !important;display:float;"]);
 
 var HiddenInput = _styledComponents["default"].input.withConfig({
   displayName: "Comments__HiddenInput",
-  componentId: "sc-2u4f5b-7"
+  componentId: "sc-159x4qx-7"
 })(["height:0px !important;width:0px !important;background:transparent !important;color:transparent !important;border:none !important;outline:none !important;cursor:default !important;padding:0 !important;margin:0 !important;max-height:0px !important;min-height:0px !important;display:float;"]);
 
 var TextArea = _styledComponents["default"].textarea.withConfig({
   displayName: "Comments__TextArea",
-  componentId: "sc-2u4f5b-8"
+  componentId: "sc-159x4qx-8"
 })(["padding:14px;width:100%;min-height:125px;border:2px solid white;box-shadow:1px 1px 3px 0px #e7e7e7;font-size:16px;outline:none;resize:vertical;:focus{border:2px solid #264966;}"]);
 
 var Button = _styledComponents["default"].button.withConfig({
   displayName: "Comments__Button",
-  componentId: "sc-2u4f5b-9"
+  componentId: "sc-159x4qx-9"
 })(["margin:0 !important;margin-left:auto !important;display:block;"]);
 
 var CommentsSection = _styledComponents["default"].div.withConfig({
   displayName: "Comments__CommentsSection",
-  componentId: "sc-2u4f5b-10"
+  componentId: "sc-159x4qx-10"
 })([""]); // const Comment = styled.div`
 //   padding: 14px;
 //   box-shadow: 1px 1px 3px 0px #e7e7e7;
@@ -236,20 +236,20 @@ var CommentsSection = _styledComponents["default"].div.withConfig({
 
 var GrayComment = _styledComponents["default"].div.withConfig({
   displayName: "Comments__GrayComment",
-  componentId: "sc-2u4f5b-11"
+  componentId: "sc-159x4qx-11"
 })(["padding:14px;font-size:16px;background:#f7f7f7;outline:none;width:100%;margin:12px 0;:last-child{margin-bottom:0;}"]);
 
 var CommentName = _styledComponents["default"].h3.withConfig({
   displayName: "Comments__CommentName",
-  componentId: "sc-2u4f5b-12"
+  componentId: "sc-159x4qx-12"
 })(["margin:0;"]);
 
 var CommentDate = _styledComponents["default"].small.withConfig({
   displayName: "Comments__CommentDate",
-  componentId: "sc-2u4f5b-13"
+  componentId: "sc-159x4qx-13"
 })(["display:block;margin-bottom:12px;"]);
 
 var CommentFooter = _styledComponents["default"].div.withConfig({
   displayName: "Comments__CommentFooter",
-  componentId: "sc-2u4f5b-14"
+  componentId: "sc-159x4qx-14"
 })(["font-size:14px;color:#666;"]);

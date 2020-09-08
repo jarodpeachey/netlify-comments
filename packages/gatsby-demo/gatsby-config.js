@@ -13,7 +13,7 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: 'gatsby-plugin-netlify-comments',
+      resolve: 'gatsby-source-netlify-comments',
       options: {
         apiKey: process.env.NETLIFY_TOKEN,
         siteID: '0c6e17fa-35ad-43d5-b244-5571222b6ac7',
