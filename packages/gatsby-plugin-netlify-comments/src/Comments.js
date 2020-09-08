@@ -16,7 +16,7 @@ function encode(data) {
 }
 
 const QUERY = gql`
-  {
+  query commentsQuery {
     allComments {
       edges {
         node {
@@ -34,27 +34,27 @@ const QUERY = gql`
 `;
 
 export const Comments = () => {
-  // const { loading, error, data } = useQuery(QUERY);
+  const { loading, error, data } = useQuery(QUERY);
 
-  // console.log(loading, error, data);
+  console.log(loading, error, data);
 
-  const data = useStaticQuery(graphql`
-    query myQuery {
-      allComments {
-        edges {
-          node {
-            data {
-              comment
-              email
-              name
-              parentCommentNumber
-              path
-            }
-          }
-        }
-      }
-    }
-  `);
+  // const data = useStaticQuery(graphql`
+  //   query myQuery {
+  //     allComments {
+  //       edges {
+  //         node {
+  //           data {
+  //             comment
+  //             email
+  //             name
+  //             parentCommentNumber
+  //             path
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // `);
 
   const [state, setState] = React.useState({});
   const [stateComments, setStateComments] = React.useState([]);

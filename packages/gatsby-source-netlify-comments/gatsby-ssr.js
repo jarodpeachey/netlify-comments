@@ -23,7 +23,7 @@
 // };
 
 const React = require('react');
-const { CommentsProvider } = require('netlify-comments');
+const { CommentsProvider } = require('gatsby-plugin-netlify-comments');
 
 exports.wrapRootElement = ({ element }, options) => {
   return <CommentsProvider options={options}>{element}</CommentsProvider>;

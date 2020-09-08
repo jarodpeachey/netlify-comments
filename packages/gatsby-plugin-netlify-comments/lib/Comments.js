@@ -33,18 +33,8 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-function _templateObject2() {
-  var data = (0, _taggedTemplateLiteral2["default"])(["\n    query myQuery {\n      allComments {\n        edges {\n          node {\n            data {\n              comment\n              email\n              name\n              parentCommentNumber\n              path\n            }\n          }\n        }\n      }\n    }\n  "]);
-
-  _templateObject2 = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
-
 function _templateObject() {
-  var data = (0, _taggedTemplateLiteral2["default"])(["\n  {\n    allComments {\n      edges {\n        node {\n          data {\n            comment\n            email\n            name\n            parentCommentNumber\n            path\n          }\n        }\n      }\n    }\n  }\n"]);
+  var data = (0, _taggedTemplateLiteral2["default"])(["\n  query commentsQuery {\n    allComments {\n      edges {\n        node {\n          data {\n            comment\n            email\n            name\n            parentCommentNumber\n            path\n          }\n        }\n      }\n    }\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -62,9 +52,28 @@ function encode(data) {
 var QUERY = (0, _apolloBoost.gql)(_templateObject());
 
 var Comments = function Comments() {
-  // const { loading, error, data } = useQuery(QUERY);
-  // console.log(loading, error, data);
-  var data = (0, _gatsby.useStaticQuery)((0, _gatsby.graphql)(_templateObject2()));
+  var _useQuery = (0, _reactHooks.useQuery)(QUERY),
+      loading = _useQuery.loading,
+      error = _useQuery.error,
+      data = _useQuery.data;
+
+  console.log(loading, error, data); // const data = useStaticQuery(graphql`
+  //   query myQuery {
+  //     allComments {
+  //       edges {
+  //         node {
+  //           data {
+  //             comment
+  //             email
+  //             name
+  //             parentCommentNumber
+  //             path
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // `);
 
   var _React$useState = _react["default"].useState({}),
       _React$useState2 = (0, _slicedToArray2["default"])(_React$useState, 2),
