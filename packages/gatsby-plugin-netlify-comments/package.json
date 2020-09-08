@@ -32,7 +32,7 @@
     "lodash.merge": "^4.6.2",
     "styled-components": "^5.1.0"
   },
-  "gitHead": "6390d9d507f6d6164d3e2ace132b1b16acb42e46",
+  "gitHead": "93266b333e6ba16f8edebd4cf19de1ee6bde840a",
   "repository": {
     "type": "git",
     "url": "https://github.com/jarodpeachey/netlify-comments",
