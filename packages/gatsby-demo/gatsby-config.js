@@ -16,7 +16,7 @@ module.exports = {
       resolve: 'gatsby-source-netlify-comments',
       options: {
         apiKey: process.env.NETLIFY_TOKEN,
-        siteID: '0c6e17fa-35ad-43d5-b244-5571222b6ac7',
+        siteId: '0c6e17fa-35ad-43d5-b244-5571222b6ac7',
         color: '#254864',
       },
     },

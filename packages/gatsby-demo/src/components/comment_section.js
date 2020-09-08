@@ -19,7 +19,7 @@ const CommentSection = ({ comments }) => {
 
   const fetchNewComments = async () => {
     const newComments = await fetch(
-      `https://api.netlify.com/api/v1/sites/b6b13974-f786-41c8-841f-38ba49c28710/submissions/?access_token=${apiKey}`
+      `https://api.netlify.com/api/v1/sites/${siteId}/submissions/?access_token=${apiKey}`
     );
 
     return newComments;
