@@ -30,7 +30,7 @@ function encode(data) {
 var Form = function Form(_ref) {
   var buttonStyles = _ref.buttonStyles,
       inputStyles = _ref.inputStyles;
-  console.log(typeof window !== 'undefined' && window.triangle);
+  console.log(typeof window !== 'undefined' && window.netlifyComments);
   var color = 'tomato';
 
   var _useState = (0, _react.useState)({

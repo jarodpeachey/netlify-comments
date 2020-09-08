@@ -9,7 +9,7 @@ function encode(data) {
 }
 
 export const Form = ({ buttonStyles, inputStyles }) => {
-  console.log(typeof window !== 'undefined' && window.triangle);
+  console.log(typeof window !== 'undefined' && window.netlifyComments);
 
   const color = 'tomato';
 

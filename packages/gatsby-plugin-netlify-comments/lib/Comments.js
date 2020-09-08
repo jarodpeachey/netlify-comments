@@ -13,8 +13,6 @@ var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/de
 
 var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
 
-var _taggedTemplateLiteral2 = _interopRequireDefault(require("@babel/runtime/helpers/taggedTemplateLiteral"));
-
 var _react = _interopRequireWildcard(require("react"));
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
@@ -33,47 +31,33 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
-function _templateObject() {
-  var data = (0, _taggedTemplateLiteral2["default"])(["\n  query commentsQuery {\n    allComments {\n      edges {\n        node {\n          data {\n            comment\n            email\n            name\n            parentCommentNumber\n            path\n          }\n        }\n      }\n    }\n  }\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
 function encode(data) {
   return Object.keys(data).map(function (key) {
     return "".concat(encodeURIComponent(key), "=").concat(encodeURIComponent(data[key]));
   }).join('&');
-}
+} // const QUERY = gql`
+//   query commentsQuery {
+//     allComments {
+//       edges {
+//         node {
+//           data {
+//             comment
+//             email
+//             name
+//             parentCommentNumber
+//             path
+//           }
+//         }
+//       }
+//     }
+//   }
+// `;
 
-var QUERY = (0, _apolloBoost.gql)(_templateObject());
 
 var Comments = function Comments() {
-  var _useQuery = (0, _reactHooks.useQuery)(QUERY),
-      loading = _useQuery.loading,
-      error = _useQuery.error,
-      data = _useQuery.data;
-
-  console.log(loading, error, data); // const data = useStaticQuery(graphql`
-  //   query myQuery {
-  //     allComments {
-  //       edges {
-  //         node {
-  //           data {
-  //             comment
-  //             email
-  //             name
-  //             parentCommentNumber
-  //             path
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // `);
+  // const { loading, error, data } = useQuery(QUERY);
+  // console.log(loading, error, data);
+  var data = (0, _gatsby.useStaticQuery)("62512911");
 
   var _React$useState = _react["default"].useState({}),
       _React$useState2 = (0, _slicedToArray2["default"])(_React$useState, 2),
