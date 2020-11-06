@@ -109,6 +109,7 @@ const Title = styled.h1`
   text-align: center;
   font-weight: 600;
   max-width: 600px;
+  margin: 0 auto;
 `;
 
 const Subtitle = styled.h3`
