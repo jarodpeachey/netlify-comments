@@ -57,12 +57,16 @@ var Comments = function Comments(_ref) {
 
     }
   }, [data]);
-  var _window$netlifyCommen = window.netlifyComments,
-      apiKey = _window$netlifyCommen.apiKey,
-      siteId = _window$netlifyCommen.siteId;
+
+  var _ref2 = typeof window !== 'undefined' ? window.netlifyComments : {
+    apiKey: 'test',
+    siteId: 'test'
+  },
+      apiKey = _ref2.apiKey,
+      siteId = _ref2.siteId;
 
   var fetchNewComments = /*#__PURE__*/function () {
-    var _ref2 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee() {
+    var _ref3 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee() {
       var newComments;
       return _regenerator["default"].wrap(function _callee$(_context) {
         while (1) {
@@ -84,7 +88,7 @@ var Comments = function Comments(_ref) {
     }));
 
     return function fetchNewComments() {
-      return _ref2.apply(this, arguments);
+      return _ref3.apply(this, arguments);
     };
   }();
 
