@@ -19,12 +19,8 @@ export const Comments = ({ data }) => {
     if (data) {
       const comments = Object.values(data)[0].edges;
       if (stateComments.length === 0 && comments.length > 0) {
-        console.log(Object.values(data)[0]);
-
         setStateComments(comments);
       }
-
-      // console.log(data.allStaticboxComments);
     }
   }, [data]);
 
@@ -44,7 +40,6 @@ export const Comments = ({ data }) => {
   useEffect(() => {
     fetchNewComments().then((res) => {
       res.json().then((json) => {
-        console.log('Sucess getting new comments: ', json);
         const insideNewComments = [];
         Object.values(json).forEach((submission) => {
           if (
@@ -164,21 +159,6 @@ export const Comments = ({ data }) => {
     e.target.parentElement.appendChild(newElement);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const form = document.getElementById('form');
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({
-        'form-name': form.getAttribute('name'),
-        ...state,
-      }),
-    })
-      .then((res) => console.log('Done: ', res))
-      .catch((error) => alert(error));
-  };
-
   return (
     <>
       {stateComments
@@ -203,7 +183,6 @@ export const Comments = ({ data }) => {
                 a.node ? a.node.number - b.node.number : a.number - b.number
               )
               .map((comment) => {
-                console.log(comment);
                 return (
                   <Comment
                     comment={comment.node ? comment.node.data : comment.data}

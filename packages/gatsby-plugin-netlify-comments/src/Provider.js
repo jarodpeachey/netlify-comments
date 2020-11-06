@@ -8,8 +8,6 @@ export class CommentsConstructor {
   siteId = '';
 
   constructor(props) {
-    console.log(props);
-
     this.apiKey = props.apiKey;
     this.siteId = props.siteId;
   }

@@ -4,6 +4,12 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Reply } from './Reply';
 
+function encode(data) {
+  return Object.keys(data)
+    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+    .join('&');
+}
+
 export const Comment = ({ comment, children, replies = [] }) => {
   const [formOpen, setFormOpen] = useState(false);
   const [showReplies, setShowReplies] = useState(false);
@@ -31,13 +37,9 @@ export const Comment = ({ comment, children, replies = [] }) => {
     customCSS: 'margin: 0;',
   });
 
-  console.log('COMMENT: ', comment);
-
-  console.log(replies);
-
-  const path = typeof window !== 'undefined' ? window.location.pathname : '/';
-
-  const [state, setState] = useState({});
+  const [state, setState] = useState({
+    path: typeof window !== 'undefined' && window.location.pathname,
+  });
 
   const handleChange = (e) => {
     setState({
@@ -48,14 +50,35 @@ export const Comment = ({ comment, children, replies = [] }) => {
     });
   };
 
+  const formName = 'Comments';
+
   const handleReplyOpen = (e) => {
     setFormOpen(!formOpen);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const form = document.getElementById('form');
+    fetch('/ ', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': form.getAttribute('name'),
+        ...state,
+      }),
+    })
+      .then((res) => {
+        setState({
+          ...state,
+          name: '',
+          email: '',
+          comment: '',
+          path: state.path,
+          parentCommentNumber: state.parentCommentNumber,
+        });
+      })
+      .catch((error) => alert(error));
   };
-
   return (
     <>
       <Wrapper>
@@ -77,11 +100,13 @@ export const Comment = ({ comment, children, replies = [] }) => {
         </CommentFooter>
         {formOpen && (
           <form
+            name={formName}
             method='post'
             id='form'
+            data-netlify='true'
             onSubmit={handleSubmit}
-            style={{ marginTop: 12, padding: 16, background: '#f2f4f9' }}
           >
+            <input type='hidden' name='form-name' value={formName} />
             <Row>
               <ColumnSix className='col col-6'>
                 <HiddenLabel htmlFor='path'>Path</HiddenLabel>
@@ -100,31 +125,29 @@ export const Comment = ({ comment, children, replies = [] }) => {
                   type='text'
                   value={0}
                 />
-                <HiddenLabel htmlFor='name'>Name</HiddenLabel>
+                <Label htmlFor='name'>Name</Label>
                 <Input
                   onChange={handleChange}
                   type='text'
-                  placeholder='Name'
                   name='name'
                   id='name'
                   customStyles={inputStyles}
                 />
               </ColumnSix>
               <ColumnSix className='col col-6'>
-                <HiddenLabel htmlFor='email'>Email</HiddenLabel>
+                <Label htmlFor='email'>Email</Label>
                 <Input
-                  placeholder='Email'
                   onChange={handleChange}
                   type='email'
                   name='email'
                   id='email'
+                  value='mail@mail.com'
                   customStyles={inputStyles}
                 />
               </ColumnSix>
               <ColumnTwelve className='col col-12'>
-                <HiddenLabel htmlFor='comment'>Comment</HiddenLabel>
+                <Label htmlFor='comment'>Comment</Label>
                 <TextArea
-                  placeholder='Comment'
                   onChange={handleChange}
                   name='comment'
                   id='comment'
@@ -133,7 +156,7 @@ export const Comment = ({ comment, children, replies = [] }) => {
               </ColumnTwelve>
               <ColumnTwelve className='col col-12'>
                 <Button customStyles={buttonStyles} name='button' type='submit'>
-                  Reply
+                  Post your comment
                 </Button>
               </ColumnTwelve>
             </Row>

@@ -23,7 +23,6 @@ export const Reply = ({ comment, buttonStyles, inputStyles, colors }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Triangle: ', window.triangle);
   };
 
   return (

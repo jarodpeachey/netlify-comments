@@ -82,8 +82,6 @@ var Comment = function Comment(_ref) {
       buttonStyles = _useState16[0],
       setButtonStyles = _useState16[1];
 
-  console.log('COMMENT: ', comment);
-  console.log(replies);
   var path = typeof window !== 'undefined' ? window.location.pathname : '/';
 
   var _useState17 = (0, _react.useState)({}),

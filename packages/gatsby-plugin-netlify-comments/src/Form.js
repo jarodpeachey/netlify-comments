@@ -9,10 +9,6 @@ function encode(data) {
 }
 
 export const Form = ({ buttonStyles, inputStyles }) => {
-  console.log(typeof window !== 'undefined' && window.netlifyComments);
-
-  const color = 'tomato';
-
   const [state, setState] = useState({
     path: typeof window !== 'undefined' && window.location.pathname,
   });
@@ -53,7 +49,16 @@ export const Form = ({ buttonStyles, inputStyles }) => {
         ...state,
       }),
     })
-      .then((res) => console.log('Done:  ', res))
+      .then((res) => {
+        setState({
+          ...state,
+          name: '',
+          email: '',
+          comment: '',
+          path: state.path,
+          parentCommentNumber: state.parentCommentNumber,
+        });
+      })
       .catch((error) => alert(error));
   };
 
@@ -91,7 +96,6 @@ export const Form = ({ buttonStyles, inputStyles }) => {
             />
             <Label htmlFor='name'>Name</Label>
             <Input
-              color={color}
               onChange={handleChange}
               type='text'
               name='name'
@@ -102,18 +106,17 @@ export const Form = ({ buttonStyles, inputStyles }) => {
           <ColumnSix className='col col-6'>
             <Label htmlFor='email'>Email</Label>
             <Input
-              color={color}
               onChange={handleChange}
               type='email'
               name='email'
               id='email'
+              value='mail@mail.com'
               customStyles={inputStyles}
             />
           </ColumnSix>
           <ColumnTwelve className='col col-12'>
             <Label htmlFor='comment'>Comment</Label>
             <TextArea
-              color={color}
               onChange={handleChange}
               name='comment'
               id='comment'
@@ -121,12 +124,7 @@ export const Form = ({ buttonStyles, inputStyles }) => {
             ></TextArea>
           </ColumnTwelve>
           <ColumnTwelve className='col col-12'>
-            <Button
-              color={color}
-              customStyles={buttonStyles}
-              name='button'
-              type='submit'
-            >
+            <Button customStyles={buttonStyles} name='button' type='submit'>
               Post your comment
             </Button>
           </ColumnTwelve>
