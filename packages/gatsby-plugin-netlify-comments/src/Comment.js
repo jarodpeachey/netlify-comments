@@ -13,8 +13,6 @@ function encode(data) {
 export const Comment = ({ comment, children, replies = [] }) => {
   const [formOpen, setFormOpen] = useState(false);
   const [showReplies, setShowReplies] = useState(false);
-  const [name, setName] = useState('');
-  const [reply, setReply] = useState('');
 
   const [colors, setColors] = useState({
     primary: '#fbbe76',
@@ -39,6 +37,9 @@ export const Comment = ({ comment, children, replies = [] }) => {
 
   const [state, setState] = useState({
     path: typeof window !== 'undefined' && window.location.pathname,
+    name: '',
+    email: 'test@mail.com',
+    comment: '',
   });
 
   const handleChange = (e) => {
@@ -105,6 +106,7 @@ export const Comment = ({ comment, children, replies = [] }) => {
             id='form'
             data-netlify='true'
             onSubmit={handleSubmit}
+            style={{ background: '#f7f7f7', borderRadius: 6, padding: 12 }}
           >
             <input type='hidden' name='form-name' value={formName} />
             <Row>
@@ -132,6 +134,7 @@ export const Comment = ({ comment, children, replies = [] }) => {
                   name='name'
                   id='name'
                   customStyles={inputStyles}
+                  value={state.name}
                 />
               </ColumnSix>
               <ColumnSix className='col col-6'>
@@ -141,8 +144,8 @@ export const Comment = ({ comment, children, replies = [] }) => {
                   type='email'
                   name='email'
                   id='email'
-                  value='mail@mail.com'
                   customStyles={inputStyles}
+                  value={state.email}
                 />
               </ColumnSix>
               <ColumnTwelve className='col col-12'>
@@ -152,11 +155,12 @@ export const Comment = ({ comment, children, replies = [] }) => {
                   name='comment'
                   id='comment'
                   customStyles={inputStyles}
+                  value={state.comment}
                 ></TextArea>
               </ColumnTwelve>
               <ColumnTwelve className='col col-12'>
                 <Button customStyles={buttonStyles} name='button' type='submit'>
-                  Post your comment
+                  Reply
                 </Button>
               </ColumnTwelve>
             </Row>

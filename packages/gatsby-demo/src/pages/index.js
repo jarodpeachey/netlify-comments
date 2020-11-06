@@ -75,10 +75,9 @@ const IndexPage = () => {
       <SEO title='Home' />
       <Hero>
         <Container>
-          <Title>Add Comments To Your Static Site</Title>
+          <Title>Gatsby + Netlify Comments Demo</Title>
           <Subtitle>
-            Using Netlify forms and Gatsby, you can add comments to your static
-            website!
+            Using a not-yet-released plugin, gatsby-plugin-netlify-comments, you can easily add comments to your Gatsby site! Go ahead, play around.
           </Subtitle>
         </Container>
       </Hero>
@@ -91,8 +90,8 @@ const IndexPage = () => {
 };
 
 const Hero = styled.div`
-  padding: 120px 0;
-  background: tomato;
+  padding: 100px 0;
+  background: rgb(68, 126, 224);
 `;
 
 const Container = styled.div`
@@ -108,13 +107,16 @@ const Title = styled.h1`
   margin-top: 0;
   margin-bottom: 24px;
   text-align: center;
+  font-weight: 600;
+  max-width: 600px;
 `;
 
 const Subtitle = styled.h3`
-  color: #ffffff90;
+  color: #ffffff;
   margin-top: 0;
-  font-size: 30px;
-  max-width: 600px;
+  font-size: 22px;
+  font-weight: 400;
+  max-width: 550px;
   text-align: center;
   margin: 0 auto;
 `;

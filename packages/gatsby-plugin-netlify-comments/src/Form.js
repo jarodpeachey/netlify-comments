@@ -11,6 +11,9 @@ function encode(data) {
 export const Form = ({ buttonStyles, inputStyles }) => {
   const [state, setState] = useState({
     path: typeof window !== 'undefined' && window.location.pathname,
+    name: "",
+    email: "test@mail.com",
+    comment: "",
   });
 
   const handleChange = (e) => {
@@ -101,6 +104,7 @@ export const Form = ({ buttonStyles, inputStyles }) => {
               name='name'
               id='name'
               customStyles={inputStyles}
+              value={state.name}
             />
           </ColumnSix>
           <ColumnSix className='col col-6'>
@@ -110,7 +114,7 @@ export const Form = ({ buttonStyles, inputStyles }) => {
               type='email'
               name='email'
               id='email'
-              value='mail@mail.com'
+              value={state.email}
               customStyles={inputStyles}
             />
           </ColumnSix>
@@ -121,6 +125,7 @@ export const Form = ({ buttonStyles, inputStyles }) => {
               name='comment'
               id='comment'
               customStyles={inputStyles}
+              value={state.comment}
             ></TextArea>
           </ColumnTwelve>
           <ColumnTwelve className='col col-12'>
