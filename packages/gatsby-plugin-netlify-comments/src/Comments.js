@@ -65,31 +65,6 @@ export const Comments = ({ data }) => {
     }
   }, []);
 
-  console.log(
-    'First level comments: ',
-    stateComments
-      .filter((comment) =>
-        comment.node
-          ? comment.node.data.parentCommentNumber == 'undefined'
-          : comment.data.parentCommentNumber == 'undefined'
-      )
-      .sort((a, b) =>
-        a.node ? a.node.number - b.node.number : a.number - b.number
-      )
-  );
-  console.log(
-    'Replies: ',
-    stateComments
-      .filter((comment) =>
-        comment.node
-          ? comment.node.data.parentCommentNumber !== 'undefined'
-          : comment.data.parentCommentNumber !== 'undefined'
-      )
-      .sort((a, b) =>
-        a.node ? a.node.number - b.node.number : a.number - b.number
-      )
-  );
-
   const handleChange = (e) => {
     setState({
       ...state,
@@ -228,9 +203,10 @@ export const Comments = ({ data }) => {
                 a.node ? a.node.number - b.node.number : a.number - b.number
               )
               .map((comment) => {
+                console.log(comment);
                 return (
                   <Comment
-                    comment={comment.node.data}
+                    comment={comment.node ? comment.node.data : comment.data}
                     // replies={stateComments
                     //   .filter(
                     //     (replyComment) =>

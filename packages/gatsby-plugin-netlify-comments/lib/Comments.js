@@ -115,16 +115,6 @@ var Comments = function Comments(_ref) {
       });
     }
   }, []);
-  console.log('First level comments: ', stateComments.filter(function (comment) {
-    return comment.node ? comment.node.data.parentCommentNumber == 'undefined' : comment.data.parentCommentNumber == 'undefined';
-  }).sort(function (a, b) {
-    return a.node ? a.node.number - b.node.number : a.number - b.number;
-  }));
-  console.log('Replies: ', stateComments.filter(function (comment) {
-    return comment.node ? comment.node.data.parentCommentNumber !== 'undefined' : comment.data.parentCommentNumber !== 'undefined';
-  }).sort(function (a, b) {
-    return a.node ? a.node.number - b.node.number : a.number - b.number;
-  }));
 
   var handleChange = function handleChange(e) {
     var _objectSpread2;
@@ -181,8 +171,9 @@ var Comments = function Comments(_ref) {
   }).sort(function (a, b) {
     return a.node ? a.node.number - b.node.number : a.number - b.number;
   }).map(function (comment) {
+    console.log(comment);
     return /*#__PURE__*/_react["default"].createElement(_Comment.Comment, {
-      comment: comment.node.data // replies={stateComments
+      comment: comment.node ? comment.node.data : comment.data // replies={stateComments
       //   .filter(
       //     (replyComment) =>
       //       replyComment.node.data.parentComment ===
