@@ -22,7 +22,7 @@
     "isomorphic-fetch": "^2.2.1",
     "node-fetch": "^2.6.0"
   },
-  "gitHead": "192e120f0b8f606ca803b7a6e543f4de0b6504fb",
+  "gitHead": "53eba212c7e3388fa98d699b83d74ab8aa56b9bd",
   "repository": {
     "type": "git",
     "url": "https://github.com/jarodpeachey/netlify-comments",

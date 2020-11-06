@@ -28,6 +28,40 @@ export const Comments = ({ data }) => {
     }
   }, [data]);
 
+  const { apiKey, siteId } = window.netlifyComments;
+
+  const fetchNewComments = async () => {
+    const newComments = await fetch(
+      `https://api.netlify.com/api/v1/sites/${siteId}/submissions/?access_token=${apiKey}`
+    );
+
+    return newComments;
+  };
+
+  useEffect(() => {
+    const newComments = fetchNewComments().then((res) => {
+      res.json().then((json) => {
+        console.log('Sucess getting new comments: ', json);
+        const insideNewComments = [];
+        Object.values(json).forEach((submission) => {
+          if (
+            submission.data.path === window.location.pathname &&
+            submission.data.name !== 'placeholder' &&
+            submission.data.comment !== 'placeholder'
+          ) {
+            insideNewComments.push(submission);
+          }
+        });
+        if (stateComments !== insideNewComments) {
+          setStateComments(insideNewComments);
+        }
+      });
+    });
+    if (state.path !== window.location.pathname) {
+      setState({ path: window.location.pathname });
+    }
+  }, []);
+
   console.log(
     'First level comments: ',
     stateComments
