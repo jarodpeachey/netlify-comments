@@ -38,6 +38,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "production": "gatsby clean && gatsby build",
     "start": "npm-link-shared ./node_modules/netlify-comments/node_modules . react && npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",

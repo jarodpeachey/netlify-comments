@@ -1,13 +1,9 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/jsx-fragments */
 /* eslint-disable import/prefer-default-export */
-import React, { useState, useEffect, createRef } from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { useStaticQuery, graphql } from 'gatsby';
-import { useQuery } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
 import { Comment } from './Comment';
-import { formatDate } from './utils/formatDate';
 
 function encode(data) {
   return Object.keys(data)
@@ -15,47 +11,7 @@ function encode(data) {
     .join('&');
 }
 
-// const QUERY = gql`
-//   query commentsQuery {
-//     allComments {
-//       edges {
-//         node {
-//           data {
-//             comment
-//             email
-//             name
-//             parentCommentNumber
-//             path
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
-
-export const Comments = () => {
-  // const { loading, error, data } = useQuery(QUERY);
-
-  // console.log(loading, error, data);
-
-  const data = useStaticQuery(graphql`
-    query {
-      allComments {
-        edges {
-          node {
-            data {
-              comment
-              email
-              name
-              parentCommentNumber
-              path
-            }
-          }
-        }
-      }
-    }
-  `);
-
+export const Comments = ({ data }) => {
   const [state, setState] = React.useState({});
   const [stateComments, setStateComments] = React.useState([]);
 

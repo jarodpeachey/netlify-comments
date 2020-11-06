@@ -17,15 +17,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
-var _gatsby = require("gatsby");
-
-var _reactHooks = require("@apollo/react-hooks");
-
-var _apolloBoost = require("apollo-boost");
-
 var _Comment = require("./Comment");
-
-var _formatDate = require("./utils/formatDate");
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -35,29 +27,10 @@ function encode(data) {
   return Object.keys(data).map(function (key) {
     return "".concat(encodeURIComponent(key), "=").concat(encodeURIComponent(data[key]));
   }).join('&');
-} // const QUERY = gql`
-//   query commentsQuery {
-//     allComments {
-//       edges {
-//         node {
-//           data {
-//             comment
-//             email
-//             name
-//             parentCommentNumber
-//             path
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;
+}
 
-
-var Comments = function Comments() {
-  // const { loading, error, data } = useQuery(QUERY);
-  // console.log(loading, error, data);
-  var data = (0, _gatsby.useStaticQuery)("62512911");
+var Comments = function Comments(_ref) {
+  var data = _ref.data;
 
   var _React$useState = _react["default"].useState({}),
       _React$useState2 = (0, _slicedToArray2["default"])(_React$useState, 2),

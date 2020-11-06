@@ -2,6 +2,7 @@ import React from 'react';
 // import { Link } from 'gatsby';
 // import Image from '../components/image';
 // import BackgroundImage from 'gatsby-background-image';
+import { useStaticQuery } from 'gatsby';
 import styled from 'styled-components';
 import { Form, Comments } from 'gatsby-plugin-netlify-comments';
 import SEO from '../components/seo';
@@ -44,7 +45,31 @@ const commentStyles = `
   border-radius: 6px;
 `;
 
-const IndexPage = ({ data }) => {
+const IndexPage = () => {
+  const data = useStaticQuery(graphql`
+    query netlifyComments {
+      allComments {
+        edges {
+          node {
+            data {
+              comment
+              email
+              name
+              parentCommentNumber
+              path
+            }
+          }
+        }
+      }
+
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `);
+
   return (
     <>
       <SEO title='Home' />
@@ -59,10 +84,8 @@ const IndexPage = ({ data }) => {
       </Hero>
       <Container>
         <Form />
-        <Comments />
+        <Comments data={data} />
       </Container>
-      {/* <CommentSection comments={data.allComments.edges} /> */}
-      {/* <Form /> */}
     </>
   );
 };
@@ -94,37 +117,6 @@ const Subtitle = styled.h3`
   max-width: 600px;
   text-align: center;
   margin: 0 auto;
-`;
-
-export const IndexQuery = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`;
-
-// allComments(filter: { data: { path: { eq: $pathname } } }) {
-//   edges {
-//     node {
-//       number
-//       data {
-//         comment
-//         email
-//         name
-//         path
-//         parentCommentNumber
-//       }
-//       created_at(formatString: "M/D/YYYY")
-//     }
-//   }
-// }
-
-const ButtonContainer = styled.div`
-  max-width: 400px;
-  margin: 0 auto !important;
 `;
 
 export default IndexPage;

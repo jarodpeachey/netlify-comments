@@ -1,59 +1,14 @@
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable react/jsx-fragments */
-import React, { useState, useEffect } from 'react';
-import styled, { css } from 'styled-components';
-import { formatDate } from './utils/formatDate';
-import { useStaticQuery, graphql } from 'gatsby';
-import { useQuery } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
+import React, { useState } from 'react';
+import styled from 'styled-components';
 import { Reply } from './Reply';
-
-function encode(data) {
-  return Object.keys(data)
-    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
-    .join('&');
-}
-
-const QUERY = gql`
-  {
-    allStaticboxStyles {
-      edges {
-        node {
-          data {
-            button {
-              customCSS
-            }
-            color {
-              primary
-              secondary
-              text
-            }
-            input {
-              customCSS
-              fontSize
-              paddingX
-              paddingY
-            }
-            label {
-              customCSS
-              fontSize
-            }
-          }
-        }
-      }
-    }
-  }
-`;
 
 export const Comment = ({ comment, children, replies = [] }) => {
   const [formOpen, setFormOpen] = useState(false);
   const [showReplies, setShowReplies] = useState(false);
   const [name, setName] = useState('');
   const [reply, setReply] = useState('');
-
-  const { loading, error, data } = useQuery(QUERY);
-
-  console.log(loading, error, data);
 
   const [colors, setColors] = useState({
     primary: '#fbbe76',

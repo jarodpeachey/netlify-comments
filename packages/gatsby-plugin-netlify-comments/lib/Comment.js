@@ -13,43 +13,15 @@ var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/de
 
 var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
 
-var _taggedTemplateLiteral2 = _interopRequireDefault(require("@babel/runtime/helpers/taggedTemplateLiteral"));
-
 var _react = _interopRequireWildcard(require("react"));
 
-var _styledComponents = _interopRequireWildcard(require("styled-components"));
-
-var _formatDate = require("./utils/formatDate");
-
-var _gatsby = require("gatsby");
-
-var _reactHooks = require("@apollo/react-hooks");
-
-var _apolloBoost = require("apollo-boost");
+var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 var _Reply = require("./Reply");
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _templateObject() {
-  var data = (0, _taggedTemplateLiteral2["default"])(["\n  {\n    allStaticboxStyles {\n      edges {\n        node {\n          data {\n            button {\n              customCSS\n            }\n            color {\n              primary\n              secondary\n              text\n            }\n            input {\n              customCSS\n              fontSize\n              paddingX\n              paddingY\n            }\n            label {\n              customCSS\n              fontSize\n            }\n          }\n        }\n      }\n    }\n  }\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function encode(data) {
-  return Object.keys(data).map(function (key) {
-    return "".concat(encodeURIComponent(key), "=").concat(encodeURIComponent(data[key]));
-  }).join('&');
-}
-
-var QUERY = (0, _apolloBoost.gql)(_templateObject());
 
 var Comment = function Comment(_ref) {
   var comment = _ref.comment,
@@ -76,13 +48,6 @@ var Comment = function Comment(_ref) {
       _useState8 = (0, _slicedToArray2["default"])(_useState7, 2),
       reply = _useState8[0],
       setReply = _useState8[1];
-
-  var _useQuery = (0, _reactHooks.useQuery)(QUERY),
-      loading = _useQuery.loading,
-      error = _useQuery.error,
-      data = _useQuery.data;
-
-  console.log(loading, error, data);
 
   var _useState9 = (0, _react.useState)({
     primary: '#fbbe76',

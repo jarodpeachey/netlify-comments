@@ -1,14 +1,6 @@
-import { useStaticQuery } from 'gatsby';
 import React from 'react';
-import { ApolloProvider } from '@apollo/react-hooks';
-import { client } from './apollo/client';
 
 export const CommentsContext = React.createContext({});
-
-/**
- * Manages the shopping cart, which is persisted in local storage.
- * The cart and related methods are shared through context.
- */
 
 export class CommentsConstructor {
   apiKey = '';
@@ -36,10 +28,8 @@ export const CommentsProvider = ({ options, children }) => {
   };
 
   return (
-    <ApolloProvider client={client}>
-      <CommentsContext.Provider value={{ ...ctx }}>
-        {children}
-      </CommentsContext.Provider>
-    </ApolloProvider>
+    <CommentsContext.Provider value={{ ...ctx }}>
+      {children}
+    </CommentsContext.Provider>
   );
 };
