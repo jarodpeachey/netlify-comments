@@ -151,7 +151,8 @@ var Comments = function Comments(_ref) {
     return a.node ? a.node.number - b.node.number : a.number - b.number;
   }).map(function (comment) {
     return /*#__PURE__*/_react["default"].createElement(_Comment.Comment, {
-      comment: comment.node ? comment.node.data : comment.data // replies={stateComments
+      comment: comment.node ? comment.node.data : comment.data,
+      number: comment.number ? comment.number : comment.node.number // replies={stateComments
       //   .filter(
       //     (replyComment) =>
       //       replyComment.node.data.parentComment ===

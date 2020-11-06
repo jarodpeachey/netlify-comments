@@ -186,6 +186,7 @@ export const Comments = ({ data }) => {
                 return (
                   <Comment
                     comment={comment.node ? comment.node.data : comment.data}
+                    number={comment.number ? comment.number : comment.node.number}
                     // replies={stateComments
                     //   .filter(
                     //     (replyComment) =>

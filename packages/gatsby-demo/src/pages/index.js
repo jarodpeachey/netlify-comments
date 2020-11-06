@@ -58,6 +58,7 @@ const IndexPage = () => {
               parentCommentNumber
               path
             }
+            number
           }
         }
       }
@@ -77,7 +78,8 @@ const IndexPage = () => {
         <Container>
           <Title>Gatsby + Netlify Comments Demo</Title>
           <Subtitle>
-            Using a not-yet-released plugin, gatsby-plugin-netlify-comments, you can easily add comments to your Gatsby site! Go ahead, play around.
+            Using a not-yet-released plugin, gatsby-plugin-netlify-comments, you
+            can easily add comments to your Gatsby site! Go ahead, play around.
           </Subtitle>
         </Container>
       </Hero>

@@ -10,7 +10,7 @@ function encode(data) {
     .join('&');
 }
 
-export const Comment = ({ comment, children, replies = [] }) => {
+export const Comment = ({ comment, children, replies = [], number }) => {
   const [formOpen, setFormOpen] = useState(false);
   const [showReplies, setShowReplies] = useState(false);
 
@@ -40,6 +40,7 @@ export const Comment = ({ comment, children, replies = [] }) => {
     name: '',
     email: 'test@mail.com',
     comment: '',
+    parentCommentNumber: number
   });
 
   const handleChange = (e) => {
@@ -106,7 +107,7 @@ export const Comment = ({ comment, children, replies = [] }) => {
             id='form'
             data-netlify='true'
             onSubmit={handleSubmit}
-            style={{ background: '#f7f7f7', borderRadius: 6, padding: 12 }}
+            style={{ background: '#f7f7f7', borderRadius: 6, padding: 12, marginTop: 12 }}
           >
             <input type='hidden' name='form-name' value={formName} />
             <Row>

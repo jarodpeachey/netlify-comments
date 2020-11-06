@@ -33,7 +33,8 @@ var Comment = function Comment(_ref) {
   var comment = _ref.comment,
       children = _ref.children,
       _ref$replies = _ref.replies,
-      replies = _ref$replies === void 0 ? [] : _ref$replies;
+      replies = _ref$replies === void 0 ? [] : _ref$replies,
+      number = _ref.number;
 
   var _useState = (0, _react.useState)(false),
       _useState2 = (0, _slicedToArray2["default"])(_useState, 2),
@@ -45,55 +46,49 @@ var Comment = function Comment(_ref) {
       showReplies = _useState4[0],
       setShowReplies = _useState4[1];
 
-  var _useState5 = (0, _react.useState)(''),
-      _useState6 = (0, _slicedToArray2["default"])(_useState5, 2),
-      name = _useState6[0],
-      setName = _useState6[1];
-
-  var _useState7 = (0, _react.useState)(''),
-      _useState8 = (0, _slicedToArray2["default"])(_useState7, 2),
-      reply = _useState8[0],
-      setReply = _useState8[1];
-
-  var _useState9 = (0, _react.useState)({
+  var _useState5 = (0, _react.useState)({
     primary: '#fbbe76',
     secondary: '#aacd67'
   }),
-      _useState10 = (0, _slicedToArray2["default"])(_useState9, 2),
-      colors = _useState10[0],
-      setColors = _useState10[1];
+      _useState6 = (0, _slicedToArray2["default"])(_useState5, 2),
+      colors = _useState6[0],
+      setColors = _useState6[1];
 
-  var _useState11 = (0, _react.useState)({
+  var _useState7 = (0, _react.useState)({
     fontSize: 16,
     customCSS: 'margin: 0;'
   }),
-      _useState12 = (0, _slicedToArray2["default"])(_useState11, 2),
-      labelStyles = _useState12[0],
-      setLabelStyles = _useState12[1];
+      _useState8 = (0, _slicedToArray2["default"])(_useState7, 2),
+      labelStyles = _useState8[0],
+      setLabelStyles = _useState8[1];
 
-  var _useState13 = (0, _react.useState)({
+  var _useState9 = (0, _react.useState)({
     fontSize: 16,
     customCSS: 'margin: 0;',
     paddingX: 16,
     paddingY: 16
   }),
-      _useState14 = (0, _slicedToArray2["default"])(_useState13, 2),
-      inputStyles = _useState14[0],
-      setInputStyles = _useState14[1];
+      _useState10 = (0, _slicedToArray2["default"])(_useState9, 2),
+      inputStyles = _useState10[0],
+      setInputStyles = _useState10[1];
 
-  var _useState15 = (0, _react.useState)({
+  var _useState11 = (0, _react.useState)({
     customCSS: 'margin: 0;'
   }),
-      _useState16 = (0, _slicedToArray2["default"])(_useState15, 2),
-      buttonStyles = _useState16[0],
-      setButtonStyles = _useState16[1];
+      _useState12 = (0, _slicedToArray2["default"])(_useState11, 2),
+      buttonStyles = _useState12[0],
+      setButtonStyles = _useState12[1];
 
-  var _useState17 = (0, _react.useState)({
-    path: typeof window !== 'undefined' && window.location.pathname
+  var _useState13 = (0, _react.useState)({
+    path: typeof window !== 'undefined' && window.location.pathname,
+    name: '',
+    email: 'test@mail.com',
+    comment: '',
+    parentCommentNumber: number
   }),
-      _useState18 = (0, _slicedToArray2["default"])(_useState17, 2),
-      state = _useState18[0],
-      setState = _useState18[1];
+      _useState14 = (0, _slicedToArray2["default"])(_useState13, 2),
+      state = _useState14[0],
+      setState = _useState14[1];
 
   var handleChange = function handleChange(e) {
     var _objectSpread2;
@@ -144,7 +139,12 @@ var Comment = function Comment(_ref) {
     method: "post",
     id: "form",
     "data-netlify": "true",
-    onSubmit: handleSubmit
+    onSubmit: handleSubmit,
+    style: {
+      background: '#f7f7f7',
+      borderRadius: 6,
+      padding: 12
+    }
   }, /*#__PURE__*/_react["default"].createElement("input", {
     type: "hidden",
     name: "form-name",
@@ -172,7 +172,8 @@ var Comment = function Comment(_ref) {
     type: "text",
     name: "name",
     id: "name",
-    customStyles: inputStyles
+    customStyles: inputStyles,
+    value: state.name
   })), /*#__PURE__*/_react["default"].createElement(ColumnSix, {
     className: "col col-6"
   }, /*#__PURE__*/_react["default"].createElement(Label, {
@@ -182,8 +183,8 @@ var Comment = function Comment(_ref) {
     type: "email",
     name: "email",
     id: "email",
-    value: "mail@mail.com",
-    customStyles: inputStyles
+    customStyles: inputStyles,
+    value: state.email
   })), /*#__PURE__*/_react["default"].createElement(ColumnTwelve, {
     className: "col col-12"
   }, /*#__PURE__*/_react["default"].createElement(Label, {
@@ -192,14 +193,15 @@ var Comment = function Comment(_ref) {
     onChange: handleChange,
     name: "comment",
     id: "comment",
-    customStyles: inputStyles
+    customStyles: inputStyles,
+    value: state.comment
   })), /*#__PURE__*/_react["default"].createElement(ColumnTwelve, {
     className: "col col-12"
   }, /*#__PURE__*/_react["default"].createElement(Button, {
     customStyles: buttonStyles,
     name: "button",
     type: "submit"
-  }, "Post your comment"))))), replies && replies.length > 0 && /*#__PURE__*/_react["default"].createElement(_react["default"].Fragment, null, showReplies && /*#__PURE__*/_react["default"].createElement(RepliesWrapper, {
+  }, "Reply"))))), replies && replies.length > 0 && /*#__PURE__*/_react["default"].createElement(_react["default"].Fragment, null, showReplies && /*#__PURE__*/_react["default"].createElement(RepliesWrapper, {
     color: "".concat(colors.primary, "30")
   }, replies.map(function (replyComment) {
     return /*#__PURE__*/_react["default"].createElement(_Reply.Reply, {

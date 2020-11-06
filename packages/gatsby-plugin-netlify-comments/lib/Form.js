@@ -32,7 +32,10 @@ var Form = function Form(_ref) {
       inputStyles = _ref.inputStyles;
 
   var _useState = (0, _react.useState)({
-    path: typeof window !== 'undefined' && window.location.pathname
+    path: typeof window !== 'undefined' && window.location.pathname,
+    name: "",
+    email: "test@mail.com",
+    comment: ""
   }),
       _useState2 = (0, _slicedToArray2["default"])(_useState, 2),
       state = _useState2[0],
@@ -113,7 +116,8 @@ var Form = function Form(_ref) {
     type: "text",
     name: "name",
     id: "name",
-    customStyles: inputStyles
+    customStyles: inputStyles,
+    value: state.name
   })), /*#__PURE__*/_react["default"].createElement(ColumnSix, {
     className: "col col-6"
   }, /*#__PURE__*/_react["default"].createElement(Label, {
@@ -123,7 +127,7 @@ var Form = function Form(_ref) {
     type: "email",
     name: "email",
     id: "email",
-    value: "mail@mail.com",
+    value: state.email,
     customStyles: inputStyles
   })), /*#__PURE__*/_react["default"].createElement(ColumnTwelve, {
     className: "col col-12"
@@ -133,7 +137,8 @@ var Form = function Form(_ref) {
     onChange: handleChange,
     name: "comment",
     id: "comment",
-    customStyles: inputStyles
+    customStyles: inputStyles,
+    value: state.comment
   })), /*#__PURE__*/_react["default"].createElement(ColumnTwelve, {
     className: "col col-12"
   }, /*#__PURE__*/_react["default"].createElement(Button, {
