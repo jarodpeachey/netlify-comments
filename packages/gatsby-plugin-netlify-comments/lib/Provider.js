@@ -25,7 +25,6 @@ var CommentsConstructor = function CommentsConstructor(props) {
   (0, _classCallCheck2["default"])(this, CommentsConstructor);
   (0, _defineProperty2["default"])(this, "apiKey", '');
   (0, _defineProperty2["default"])(this, "siteId", '');
-  console.log(props);
   this.apiKey = props.apiKey;
   this.siteId = props.siteId;
 };

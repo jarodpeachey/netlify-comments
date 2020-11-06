@@ -51,10 +51,8 @@ var Comments = function Comments(_ref) {
       var comments = Object.values(data)[0].edges;
 
       if (stateComments.length === 0 && comments.length > 0) {
-        console.log(Object.values(data)[0]);
         setStateComments(comments);
-      } // console.log(data.allStaticboxComments);
-
+      }
     }
   }, [data]);
 
@@ -95,7 +93,6 @@ var Comments = function Comments(_ref) {
   (0, _react.useEffect)(function () {
     fetchNewComments().then(function (res) {
       res.json().then(function (json) {
-        console.log('Sucess getting new comments: ', json);
         var insideNewComments = [];
         Object.values(json).forEach(function (submission) {
           if (submission.data.path === window.location.pathname && submission.data.name !== 'placeholder' && submission.data.comment !== 'placeholder') {
@@ -142,24 +139,6 @@ var Comments = function Comments(_ref) {
     e.target.parentElement.appendChild(newElement);
   };
 
-  var handleSubmit = function handleSubmit(e) {
-    e.preventDefault();
-    var form = document.getElementById('form');
-    fetch('/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      },
-      body: encode(_objectSpread({
-        'form-name': form.getAttribute('name')
-      }, state))
-    }).then(function (res) {
-      return console.log('Done: ', res);
-    })["catch"](function (error) {
-      return alert(error);
-    });
-  };
-
   return /*#__PURE__*/_react["default"].createElement(_react["default"].Fragment, null, stateComments.filter(function (comment) {
     return comment.node ? comment.node.data.parentCommentNumber === 'undefined' : comment.data.parentCommentNumber === 'undefined';
   }).sort(function (a, b) {
@@ -171,7 +150,6 @@ var Comments = function Comments(_ref) {
   }).sort(function (a, b) {
     return a.node ? a.node.number - b.node.number : a.number - b.number;
   }).map(function (comment) {
-    console.log(comment);
     return /*#__PURE__*/_react["default"].createElement(_Comment.Comment, {
       comment: comment.node ? comment.node.data : comment.data // replies={stateComments
       //   .filter(

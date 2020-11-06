@@ -30,8 +30,6 @@ function encode(data) {
 var Form = function Form(_ref) {
   var buttonStyles = _ref.buttonStyles,
       inputStyles = _ref.inputStyles;
-  console.log(typeof window !== 'undefined' && window.netlifyComments);
-  var color = 'tomato';
 
   var _useState = (0, _react.useState)({
     path: typeof window !== 'undefined' && window.location.pathname
@@ -69,7 +67,13 @@ var Form = function Form(_ref) {
         'form-name': form.getAttribute('name')
       }, state))
     }).then(function (res) {
-      return console.log('Done:  ', res);
+      setState(_objectSpread(_objectSpread({}, state), {}, {
+        name: '',
+        email: '',
+        comment: '',
+        path: state.path,
+        parentCommentNumber: state.parentCommentNumber
+      }));
     })["catch"](function (error) {
       return alert(error);
     });
@@ -105,7 +109,6 @@ var Form = function Form(_ref) {
   }), /*#__PURE__*/_react["default"].createElement(Label, {
     htmlFor: "name"
   }, "Name"), /*#__PURE__*/_react["default"].createElement(Input, {
-    color: color,
     onChange: handleChange,
     type: "text",
     name: "name",
@@ -116,18 +119,17 @@ var Form = function Form(_ref) {
   }, /*#__PURE__*/_react["default"].createElement(Label, {
     htmlFor: "email"
   }, "Email"), /*#__PURE__*/_react["default"].createElement(Input, {
-    color: color,
     onChange: handleChange,
     type: "email",
     name: "email",
     id: "email",
+    value: "mail@mail.com",
     customStyles: inputStyles
   })), /*#__PURE__*/_react["default"].createElement(ColumnTwelve, {
     className: "col col-12"
   }, /*#__PURE__*/_react["default"].createElement(Label, {
     htmlFor: "comment"
   }, "Comment"), /*#__PURE__*/_react["default"].createElement(TextArea, {
-    color: color,
     onChange: handleChange,
     name: "comment",
     id: "comment",
@@ -135,7 +137,6 @@ var Form = function Form(_ref) {
   })), /*#__PURE__*/_react["default"].createElement(ColumnTwelve, {
     className: "col col-12"
   }, /*#__PURE__*/_react["default"].createElement(Button, {
-    color: color,
     customStyles: buttonStyles,
     name: "button",
     type: "submit"

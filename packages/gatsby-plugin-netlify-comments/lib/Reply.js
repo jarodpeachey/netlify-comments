@@ -54,7 +54,6 @@ var Reply = function Reply(_ref) {
 
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
-    console.log('Triangle: ', window.triangle);
   };
 
   return /*#__PURE__*/_react["default"].createElement(Container, null, /*#__PURE__*/_react["default"].createElement(Wrapper, {

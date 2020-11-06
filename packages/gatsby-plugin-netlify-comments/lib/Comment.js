@@ -23,6 +23,12 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
+function encode(data) {
+  return Object.keys(data).map(function (key) {
+    return "".concat(encodeURIComponent(key), "=").concat(encodeURIComponent(data[key]));
+  }).join('&');
+}
+
 var Comment = function Comment(_ref) {
   var comment = _ref.comment,
       children = _ref.children,
@@ -82,9 +88,9 @@ var Comment = function Comment(_ref) {
       buttonStyles = _useState16[0],
       setButtonStyles = _useState16[1];
 
-  var path = typeof window !== 'undefined' ? window.location.pathname : '/';
-
-  var _useState17 = (0, _react.useState)({}),
+  var _useState17 = (0, _react.useState)({
+    path: typeof window !== 'undefined' && window.location.pathname
+  }),
       _useState18 = (0, _slicedToArray2["default"])(_useState17, 2),
       state = _useState18[0],
       setState = _useState18[1];
@@ -95,12 +101,34 @@ var Comment = function Comment(_ref) {
     setState(_objectSpread(_objectSpread({}, state), {}, (_objectSpread2 = {}, (0, _defineProperty2["default"])(_objectSpread2, e.target.name, e.target.value), (0, _defineProperty2["default"])(_objectSpread2, "path", state.path), (0, _defineProperty2["default"])(_objectSpread2, "parentCommentNumber", state.parentCommentNumber), _objectSpread2)));
   };
 
+  var formName = 'Comments';
+
   var handleReplyOpen = function handleReplyOpen(e) {
     setFormOpen(!formOpen);
   };
 
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
+    var form = document.getElementById('form');
+    fetch('/ ', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: encode(_objectSpread({
+        'form-name': form.getAttribute('name')
+      }, state))
+    }).then(function (res) {
+      setState(_objectSpread(_objectSpread({}, state), {}, {
+        name: '',
+        email: '',
+        comment: '',
+        path: state.path,
+        parentCommentNumber: state.parentCommentNumber
+      }));
+    })["catch"](function (error) {
+      return alert(error);
+    });
   };
 
   return /*#__PURE__*/_react["default"].createElement(_react["default"].Fragment, null, /*#__PURE__*/_react["default"].createElement(Wrapper, null, /*#__PURE__*/_react["default"].createElement(CommentTitle, null, comment.name), /*#__PURE__*/_react["default"].createElement(CommentBody, null, comment.comment), /*#__PURE__*/_react["default"].createElement(CommentFooter, null, /*#__PURE__*/_react["default"].createElement(FooterLink, {
@@ -112,15 +140,16 @@ var Comment = function Comment(_ref) {
     color: colors.primary,
     onClick: handleReplyOpen
   }, formOpen ? 'Cancel' : 'Reply')), formOpen && /*#__PURE__*/_react["default"].createElement("form", {
+    name: formName,
     method: "post",
     id: "form",
-    onSubmit: handleSubmit,
-    style: {
-      marginTop: 12,
-      padding: 16,
-      background: '#f2f4f9'
-    }
-  }, /*#__PURE__*/_react["default"].createElement(Row, null, /*#__PURE__*/_react["default"].createElement(ColumnSix, {
+    "data-netlify": "true",
+    onSubmit: handleSubmit
+  }, /*#__PURE__*/_react["default"].createElement("input", {
+    type: "hidden",
+    name: "form-name",
+    value: formName
+  }), /*#__PURE__*/_react["default"].createElement(Row, null, /*#__PURE__*/_react["default"].createElement(ColumnSix, {
     className: "col col-6"
   }, /*#__PURE__*/_react["default"].createElement(HiddenLabel, {
     htmlFor: "path"
@@ -136,32 +165,30 @@ var Comment = function Comment(_ref) {
     id: "parentCommentNumber",
     type: "text",
     value: 0
-  }), /*#__PURE__*/_react["default"].createElement(HiddenLabel, {
+  }), /*#__PURE__*/_react["default"].createElement(Label, {
     htmlFor: "name"
   }, "Name"), /*#__PURE__*/_react["default"].createElement(Input, {
     onChange: handleChange,
     type: "text",
-    placeholder: "Name",
     name: "name",
     id: "name",
     customStyles: inputStyles
   })), /*#__PURE__*/_react["default"].createElement(ColumnSix, {
     className: "col col-6"
-  }, /*#__PURE__*/_react["default"].createElement(HiddenLabel, {
+  }, /*#__PURE__*/_react["default"].createElement(Label, {
     htmlFor: "email"
   }, "Email"), /*#__PURE__*/_react["default"].createElement(Input, {
-    placeholder: "Email",
     onChange: handleChange,
     type: "email",
     name: "email",
     id: "email",
+    value: "mail@mail.com",
     customStyles: inputStyles
   })), /*#__PURE__*/_react["default"].createElement(ColumnTwelve, {
     className: "col col-12"
-  }, /*#__PURE__*/_react["default"].createElement(HiddenLabel, {
+  }, /*#__PURE__*/_react["default"].createElement(Label, {
     htmlFor: "comment"
   }, "Comment"), /*#__PURE__*/_react["default"].createElement(TextArea, {
-    placeholder: "Comment",
     onChange: handleChange,
     name: "comment",
     id: "comment",
@@ -172,7 +199,7 @@ var Comment = function Comment(_ref) {
     customStyles: buttonStyles,
     name: "button",
     type: "submit"
-  }, "Reply"))))), replies && replies.length > 0 && /*#__PURE__*/_react["default"].createElement(_react["default"].Fragment, null, showReplies && /*#__PURE__*/_react["default"].createElement(RepliesWrapper, {
+  }, "Post your comment"))))), replies && replies.length > 0 && /*#__PURE__*/_react["default"].createElement(_react["default"].Fragment, null, showReplies && /*#__PURE__*/_react["default"].createElement(RepliesWrapper, {
     color: "".concat(colors.primary, "30")
   }, replies.map(function (replyComment) {
     return /*#__PURE__*/_react["default"].createElement(_Reply.Reply, {
