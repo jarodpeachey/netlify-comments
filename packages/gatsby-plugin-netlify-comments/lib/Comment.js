@@ -143,7 +143,8 @@ var Comment = function Comment(_ref) {
     style: {
       background: '#f7f7f7',
       borderRadius: 6,
-      padding: 12
+      padding: 12,
+      marginTop: 12
     }
   }, /*#__PURE__*/_react["default"].createElement("input", {
     type: "hidden",
