@@ -11,6 +11,10 @@ exports.Comments = void 0;
 
 var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/defineProperty"));
 
+var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+
+var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
+
 var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
 
 var _react = _interopRequireWildcard(require("react"));
@@ -53,6 +57,60 @@ var Comments = function Comments(_ref) {
 
     }
   }, [data]);
+  var _window$netlifyCommen = window.netlifyComments,
+      apiKey = _window$netlifyCommen.apiKey,
+      siteId = _window$netlifyCommen.siteId;
+
+  var fetchNewComments = /*#__PURE__*/function () {
+    var _ref2 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee() {
+      var newComments;
+      return _regenerator["default"].wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return fetch("https://api.netlify.com/api/v1/sites/".concat(siteId, "/submissions/?access_token=").concat(apiKey));
+
+            case 2:
+              newComments = _context.sent;
+              return _context.abrupt("return", newComments);
+
+            case 4:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function fetchNewComments() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
+  (0, _react.useEffect)(function () {
+    fetchNewComments().then(function (res) {
+      res.json().then(function (json) {
+        console.log('Sucess getting new comments: ', json);
+        var insideNewComments = [];
+        Object.values(json).forEach(function (submission) {
+          if (submission.data.path === window.location.pathname && submission.data.name !== 'placeholder' && submission.data.comment !== 'placeholder') {
+            insideNewComments.push(submission);
+          }
+        });
+
+        if (stateComments !== insideNewComments) {
+          setStateComments(insideNewComments);
+        }
+      });
+    });
+
+    if (state.path !== window.location.pathname) {
+      setState({
+        path: window.location.pathname
+      });
+    }
+  }, []);
   console.log('First level comments: ', stateComments.filter(function (comment) {
     return comment.node ? comment.node.data.parentCommentNumber == 'undefined' : comment.data.parentCommentNumber == 'undefined';
   }).sort(function (a, b) {

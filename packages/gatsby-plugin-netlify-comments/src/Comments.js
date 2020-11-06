@@ -28,7 +28,10 @@ export const Comments = ({ data }) => {
     }
   }, [data]);
 
-  const { apiKey, siteId } = window.netlifyComments;
+  const { apiKey, siteId } =
+    typeof window !== 'undefined'
+      ? window.netlifyComments
+      : { apiKey: 'test', siteId: 'test' };
 
   const fetchNewComments = async () => {
     const newComments = await fetch(
@@ -39,7 +42,7 @@ export const Comments = ({ data }) => {
   };
 
   useEffect(() => {
-    const newComments = fetchNewComments().then((res) => {
+    fetchNewComments().then((res) => {
       res.json().then((json) => {
         console.log('Sucess getting new comments: ', json);
         const insideNewComments = [];
