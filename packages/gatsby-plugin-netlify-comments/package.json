@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-netlify-comments",
-  "version": "0.0.7-alpha.1",
+  "version": "0.0.7-alpha.2",
   "description": "A drop-in solution for using comments on JAMstack sites.",
   "main": "index.js",
   "private": false,
