@@ -147,7 +147,7 @@ const Container = styled.div`
 const Wrapper = styled.div`
   padding: 14px;
   border: 1px solid #dfdfdf;
-  border-radius: 3px;
+  border-radius: 5px;
   font-size: 16px;
   background: white;
   outline: none;

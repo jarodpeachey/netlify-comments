@@ -178,7 +178,7 @@ const Wrapper = styled.div`
   margin: 12px 0;
   padding: 14px;
   border: 1px solid #dfdfdf;
-  border-radius: 3px;
+  border-radius: 5px;
   font-size: 16px;
   width: 100%;
 `;

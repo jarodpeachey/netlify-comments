@@ -147,7 +147,7 @@ const Label = styled.label`
 const Input = styled.input`
   padding: 14px;
   border: 1px solid #dfdfdf;
-  border-radius: 3px;
+  border-radius: 5px;
   font-size: 16px;
   width: 100%;
   outline: none;
@@ -198,7 +198,7 @@ const HiddenInput = styled.input`
 const TextArea = styled.textarea`
   padding: 14px;
   border: 1px solid #dfdfdf;
-  border-radius: 3px;
+  border-radius: 5px;
   font-size: 16px;
   width: 100%;
   outline: none;
@@ -221,7 +221,7 @@ const Button = styled.button`
   padding: 14px;
   margin-left: auto;
   display: block;
-  border-radius: 6px;
+  border-radius: 5px;
   background: #4c8bf5;
   border: 1px solid #4c8bf5;
   cursor: pointer;
