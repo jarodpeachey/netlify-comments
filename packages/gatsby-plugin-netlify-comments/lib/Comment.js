@@ -178,7 +178,7 @@ var Comment = function Comment(_ref) {
 var Wrapper = _styledComponents["default"].div.withConfig({
   displayName: "Comment__Wrapper",
   componentId: "sc-1si8ait-0"
-})(["margin:12px 0;padding:14px;border:1px solid #dfdfdf;border-radius:3px;font-size:16px;width:100%;"]);
+})(["margin:12px 0;padding:14px;border:1px solid #dfdfdf;border-radius:5px;font-size:16px;width:100%;"]);
 
 var CommentTitle = _styledComponents["default"].h3.withConfig({
   displayName: "Comment__CommentTitle",

@@ -163,7 +163,7 @@ var Label = _styledComponents["default"].label.withConfig({
 var Input = _styledComponents["default"].input.withConfig({
   displayName: "Form__Input",
   componentId: "sc-11z001g-2"
-})(["padding:14px;border:1px solid #dfdfdf;border-radius:3px;font-size:16px;width:100%;outline:none;:hover{border:1px solid #4c8bf5;}:focus{border:1px solid #4c8bf5;outline:1px #4c8bf5 auto;}transition:0.15s;box-sizing:border-box;", ""], function (props) {
+})(["padding:14px;border:1px solid #dfdfdf;border-radius:5px;font-size:16px;width:100%;outline:none;:hover{border:1px solid #4c8bf5;}:focus{border:1px solid #4c8bf5;outline:1px #4c8bf5 auto;}transition:0.15s;box-sizing:border-box;", ""], function (props) {
   return props.customStyles;
 });
 
@@ -180,14 +180,14 @@ var HiddenInput = _styledComponents["default"].input.withConfig({
 var TextArea = _styledComponents["default"].textarea.withConfig({
   displayName: "Form__TextArea",
   componentId: "sc-11z001g-5"
-})(["padding:14px;border:1px solid #dfdfdf;border-radius:3px;font-size:16px;width:100%;outline:none;:hover{border:1px solid #4c8bf5;}:focus{border:1px solid #4c8bf5;outline:1px #4c8bf5 auto;}transition:0.15s;box-sizing:border-box;min-height:125px;resize:vertical;", " box-sizing:border-box;"], function (props) {
+})(["padding:14px;border:1px solid #dfdfdf;border-radius:5px;font-size:16px;width:100%;outline:none;:hover{border:1px solid #4c8bf5;}:focus{border:1px solid #4c8bf5;outline:1px #4c8bf5 auto;}transition:0.15s;box-sizing:border-box;min-height:125px;resize:vertical;", " box-sizing:border-box;"], function (props) {
   return props.customStyles;
 });
 
 var Button = _styledComponents["default"].button.withConfig({
   displayName: "Form__Button",
   componentId: "sc-11z001g-6"
-})(["padding:14px;margin-left:auto;display:block;border-radius:6px;background:#4c8bf5;border:1px solid #4c8bf5;cursor:pointer;text-transform:uppercase;color:white;font-size:14px;box-shadow:2px 2px 8px -4px #447ee0;transition:0.15s;:hover{background:#447ee0;border:1px solid #447ee0;box-shadow:3px 3px 20px -8px #447ee0;}", " box-sizing:border-box;"], function (props) {
+})(["padding:14px;margin-left:auto;display:block;border-radius:5px;background:#4c8bf5;border:1px solid #4c8bf5;cursor:pointer;text-transform:uppercase;color:white;font-size:14px;box-shadow:2px 2px 8px -4px #447ee0;transition:0.15s;:hover{background:#447ee0;border:1px solid #447ee0;box-shadow:3px 3px 20px -8px #447ee0;}", " box-sizing:border-box;"], function (props) {
   return props.customStyles;
 });
 

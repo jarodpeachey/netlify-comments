@@ -161,7 +161,7 @@ var Container = _styledComponents["default"].div.withConfig({
 var Wrapper = _styledComponents["default"].div.withConfig({
   displayName: "Reply__Wrapper",
   componentId: "sc-150to4y-1"
-})(["padding:14px;border:1px solid #dfdfdf;border-radius:3px;font-size:16px;background:white;outline:none;width:100%;margin:12px 0;background:", ";"], function (props) {
+})(["padding:14px;border:1px solid #dfdfdf;border-radius:5px;font-size:16px;background:white;outline:none;width:100%;margin:12px 0;background:", ";"], function (props) {
   return props.gray ? 'white' : 'white';
 });
 
