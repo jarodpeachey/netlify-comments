@@ -197,6 +197,7 @@ const TextArea = styled.textarea`
   min-height: 125px;
   resize: vertical;
   box-sizing: border-box;
+  font-family: sans-serif !important;
 `;
 
 const Button = styled.button`
