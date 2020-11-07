@@ -76,7 +76,7 @@ const IndexPage = () => {
       <SEO title='Home' />
       <Hero>
         <Container>
-          <Title>Gatsby + Netlify Comments Demo</Title>
+          <Title>Gatsby + Netlify Comments Plugin Demo</Title>
           <Subtitle>
             This is a demo of a soon-to-be-released Gatsby plugin to allow you
             to add comments to your static website! 🔥
