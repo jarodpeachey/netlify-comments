@@ -162,7 +162,7 @@ var HiddenInput = _styledComponents["default"].input.withConfig({
 var TextArea = _styledComponents["default"].textarea.withConfig({
   displayName: "Form__TextArea",
   componentId: "sc-11z001g-5"
-})(["padding:14px;border:1px solid #dfdfdf;border-radius:5px;font-size:16px;width:100%;outline:none;:hover{border:1px solid #4c8bf5;}:focus{border:1px solid #4c8bf5;outline:1px #4c8bf5 auto;}transition:0.15s;box-sizing:border-box;min-height:125px;resize:vertical;box-sizing:border-box;"]);
+})(["padding:14px;border:1px solid #dfdfdf;border-radius:5px;font-size:16px;width:100%;outline:none;:hover{border:1px solid #4c8bf5;}:focus{border:1px solid #4c8bf5;outline:1px #4c8bf5 auto;}transition:0.15s;box-sizing:border-box;min-height:125px;resize:vertical;box-sizing:border-box;font-family:sans-serif !important;"]);
 
 var Button = _styledComponents["default"].button.withConfig({
   displayName: "Form__Button",
