@@ -188,6 +188,7 @@ const TextArea = styled.textarea`
   :hover {
     border: 1px solid #4c8bf5;
   }
+  
   :focus {
     border: 1px solid #4c8bf5;
     outline: 1px #4c8bf5 auto;
