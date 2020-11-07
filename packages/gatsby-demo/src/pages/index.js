@@ -86,7 +86,7 @@ const IndexPage = () => {
       <Container>
         <Card>
           <p>
-            Go ahead, add a comment and play around. You're data won't be used,
+            Go ahead, add a comment and play around. Your data won't be used,
             and you can use dummy data as well 🙂
           </p>
           <h2>Add a comment</h2>
