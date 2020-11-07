@@ -138,7 +138,6 @@ var Comment = function Comment(_ref) {
     type: "text",
     name: "name",
     id: "name",
-    customStyles: inputStyles,
     value: state.name
   })), /*#__PURE__*/_react["default"].createElement(ColumnSix, {
     className: "col col-6"
@@ -149,7 +148,6 @@ var Comment = function Comment(_ref) {
     type: "email",
     name: "email",
     id: "email",
-    customStyles: inputStyles,
     value: state.email
   })), /*#__PURE__*/_react["default"].createElement(ColumnTwelve, {
     className: "col col-12"
@@ -159,12 +157,10 @@ var Comment = function Comment(_ref) {
     onChange: handleChange,
     name: "comment",
     id: "comment",
-    customStyles: inputStyles,
     value: state.comment
   })), /*#__PURE__*/_react["default"].createElement(ColumnTwelve, {
     className: "col col-12"
   }, /*#__PURE__*/_react["default"].createElement(Button, {
-    customStyles: buttonStyles,
     name: "button",
     type: "submit"
   }, "Reply"))))), replies && replies.length > 0 && /*#__PURE__*/_react["default"].createElement(_react["default"].Fragment, null, showReplies && /*#__PURE__*/_react["default"].createElement(RepliesWrapper, null, replies.map(function (replyComment) {
@@ -203,32 +199,32 @@ var FooterLink = _styledComponents["default"].span.withConfig({
 var Label = _styledComponents["default"].label.withConfig({
   displayName: "Comment__Label",
   componentId: "sc-1si8ait-5"
-})(["margin-bottom:8px;display:block;font-size:16px !important;"]);
+})(["margin-bottom:8px;display:block;box-sizing:border-box;color:#444;font-weight:bold;"]);
 
 var Input = _styledComponents["default"].input.withConfig({
   displayName: "Comment__Input",
   componentId: "sc-1si8ait-6"
-})(["font-family:sans-serif;font-size:15px;color:#444;padding:6px 8px;margin:0;width:100%;border:1px solid #e8e8e8;border-radius:5px;:focus{outline:1px #fbbe76 auto;}font-size:16px !important;"]);
-
-var TextArea = _styledComponents["default"].textarea.withConfig({
-  displayName: "Comment__TextArea",
-  componentId: "sc-1si8ait-7"
-})(["font-family:sans-serif;font-size:15px;color:#444;padding:6px 8px;width:100%;font-size:16px !important;margin:0;border:1px solid #e8e8e8;border-radius:5px;min-height:150px;resize:vertical;:focus{outline:1px #fbbe76 auto;}"]);
+})(["padding:14px;border:1px solid #dfdfdf;border-radius:5px;font-size:16px;width:100%;outline:none;:hover{border:1px solid #4c8bf5;}:focus{border:1px solid #4c8bf5;outline:1px #4c8bf5 auto;}transition:0.15s;box-sizing:border-box;"]);
 
 var HiddenLabel = _styledComponents["default"].label.withConfig({
   displayName: "Comment__HiddenLabel",
-  componentId: "sc-1si8ait-8"
+  componentId: "sc-1si8ait-7"
 })(["height:0px;width:0px;background:transparent;color:transparent;border:none;outline:none;cursor:default;padding:0;margin:0;max-height:0px;min-height:0px;display:float;box-sizing:border-box;"]);
 
 var HiddenInput = _styledComponents["default"].input.withConfig({
   displayName: "Comment__HiddenInput",
-  componentId: "sc-1si8ait-9"
+  componentId: "sc-1si8ait-8"
 })(["height:0px;width:0px;background:transparent;color:transparent;border:none;outline:none;cursor:default;padding:0;margin:0;max-height:0px;min-height:0px;display:float;box-sizing:border-box;"]);
+
+var TextArea = _styledComponents["default"].textarea.withConfig({
+  displayName: "Comment__TextArea",
+  componentId: "sc-1si8ait-9"
+})(["padding:14px;border:1px solid #dfdfdf;border-radius:5px;font-size:16px;width:100%;outline:none;:hover{border:1px solid #4c8bf5;}:focus{border:1px solid #4c8bf5;outline:1px #4c8bf5 auto;}transition:0.15s;box-sizing:border-box;min-height:125px;resize:vertical;box-sizing:border-box;"]);
 
 var Button = _styledComponents["default"].button.withConfig({
   displayName: "Comment__Button",
   componentId: "sc-1si8ait-10"
-})(["padding:12px;background:#fbbe76;color:white;border:none;outline:none;cursor:pointer;border-radius:5px;margin-left:auto;"]);
+})(["padding:14px;margin-left:auto;display:block;border-radius:5px;background:#4c8bf5;border:1px solid #4c8bf5;cursor:pointer;text-transform:uppercase;color:white;font-size:14px;box-shadow:2px 2px 8px -4px #447ee0;transition:0.15s;:hover{background:#447ee0;border:1px solid #447ee0;box-shadow:3px 3px 20px -8px #447ee0;}box-sizing:border-box;"]);
 
 var Row = _styledComponents["default"].div.withConfig({
   displayName: "Comment__Row",

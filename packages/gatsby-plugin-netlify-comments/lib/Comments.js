@@ -156,7 +156,7 @@ var Comments = function Comments(_ref) {
       replies: stateComments.filter(function (replyComment) {
         return replyComment.node ? replyComment.node.data.parentCommentNumber == (comment.number ? comment.number : comment.node.number) : replyComment.data.parentCommentNumber == (comment.number ? comment.number : comment.node.number);
       }).sort(function (a, b) {
-        return a.node ? a.node.id - b.node.id : a.id - b.id;
+        return a.node ? a.node.number - b.node.number : a.number - b.number;
       })
     });
   }))));

@@ -8,12 +8,12 @@ function encode(data) {
     .join('&');
 }
 
-export const Form = ({ buttonStyles, inputStyles }) => {
+export const Form = () => {
   const [state, setState] = useState({
     path: typeof window !== 'undefined' && window.location.pathname,
-    name: "",
-    email: "test@mail.com",
-    comment: "",
+    name: '',
+    email: 'test@mail.com',
+    comment: '',
   });
 
   const handleChange = (e) => {
@@ -26,20 +26,6 @@ export const Form = ({ buttonStyles, inputStyles }) => {
   };
 
   const formName = 'Comments';
-
-  // const [emailError, setEmailError] = useState(false);
-
-  // const onEmailInputChange = (e) => {
-  //   setEmail(e.target.value);
-
-  //   const regex = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
-
-  //   if (regex.test(e.target.value)) {
-  //     setEmailError(false);
-  //   } else {
-  //     setEmailError(true);
-  //   }
-  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -95,7 +81,6 @@ export const Form = ({ buttonStyles, inputStyles }) => {
               type='text'
               name='name'
               id='name'
-              customStyles={inputStyles}
               value={state.name}
             />
           </ColumnSix>
@@ -107,7 +92,6 @@ export const Form = ({ buttonStyles, inputStyles }) => {
               name='email'
               id='email'
               value={state.email}
-              customStyles={inputStyles}
             />
           </ColumnSix>
           <ColumnTwelve className='col col-12'>
@@ -116,12 +100,11 @@ export const Form = ({ buttonStyles, inputStyles }) => {
               onChange={handleChange}
               name='comment'
               id='comment'
-              customStyles={inputStyles}
               value={state.comment}
             ></TextArea>
           </ColumnTwelve>
           <ColumnTwelve className='col col-12'>
-            <Button customStyles={buttonStyles} name='button' type='submit'>
+            <Button name='button' type='submit'>
               Post your comment
             </Button>
           </ColumnTwelve>
@@ -140,8 +123,9 @@ const Wrapper = styled.div`
 const Label = styled.label`
   margin-bottom: 8px;
   display: block;
-  font-weight: 500;
   box-sizing: border-box;
+  color: #444;
+  font-weight: bold;
 `;
 
 const Input = styled.input`
@@ -160,7 +144,6 @@ const Input = styled.input`
   }
   transition: 0.15s;
   box-sizing: border-box;
-  ${(props) => props.customStyles}
 `;
 
 const HiddenLabel = styled.label`
@@ -213,7 +196,6 @@ const TextArea = styled.textarea`
   box-sizing: border-box;
   min-height: 125px;
   resize: vertical;
-  ${(props) => props.customStyles}
   box-sizing: border-box;
 `;
 
@@ -235,7 +217,6 @@ const Button = styled.button`
     border: 1px solid #447ee0;
     box-shadow: 3px 3px 20px -8px #447ee0;
   }
-  ${(props) => props.customStyles}
   box-sizing: border-box;
 `;
 

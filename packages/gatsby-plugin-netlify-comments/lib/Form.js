@@ -27,15 +27,12 @@ function encode(data) {
   }).join('&');
 }
 
-var Form = function Form(_ref) {
-  var buttonStyles = _ref.buttonStyles,
-      inputStyles = _ref.inputStyles;
-
+var Form = function Form() {
   var _useState = (0, _react.useState)({
     path: typeof window !== 'undefined' && window.location.pathname,
-    name: "",
-    email: "test@mail.com",
-    comment: ""
+    name: '',
+    email: 'test@mail.com',
+    comment: ''
   }),
       _useState2 = (0, _slicedToArray2["default"])(_useState, 2),
       state = _useState2[0],
@@ -47,16 +44,7 @@ var Form = function Form(_ref) {
     setState(_objectSpread(_objectSpread({}, state), {}, (_objectSpread2 = {}, (0, _defineProperty2["default"])(_objectSpread2, e.target.name, e.target.value), (0, _defineProperty2["default"])(_objectSpread2, "path", state.path), (0, _defineProperty2["default"])(_objectSpread2, "parentCommentNumber", state.parentCommentNumber), _objectSpread2)));
   };
 
-  var formName = 'Comments'; // const [emailError, setEmailError] = useState(false);
-  // const onEmailInputChange = (e) => {
-  //   setEmail(e.target.value);
-  //   const regex = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
-  //   if (regex.test(e.target.value)) {
-  //     setEmailError(false);
-  //   } else {
-  //     setEmailError(true);
-  //   }
-  // };
+  var formName = 'Comments';
 
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
@@ -116,7 +104,6 @@ var Form = function Form(_ref) {
     type: "text",
     name: "name",
     id: "name",
-    customStyles: inputStyles,
     value: state.name
   })), /*#__PURE__*/_react["default"].createElement(ColumnSix, {
     className: "col col-6"
@@ -127,8 +114,7 @@ var Form = function Form(_ref) {
     type: "email",
     name: "email",
     id: "email",
-    value: state.email,
-    customStyles: inputStyles
+    value: state.email
   })), /*#__PURE__*/_react["default"].createElement(ColumnTwelve, {
     className: "col col-12"
   }, /*#__PURE__*/_react["default"].createElement(Label, {
@@ -137,12 +123,10 @@ var Form = function Form(_ref) {
     onChange: handleChange,
     name: "comment",
     id: "comment",
-    customStyles: inputStyles,
     value: state.comment
   })), /*#__PURE__*/_react["default"].createElement(ColumnTwelve, {
     className: "col col-12"
   }, /*#__PURE__*/_react["default"].createElement(Button, {
-    customStyles: buttonStyles,
     name: "button",
     type: "submit"
   }, "Post your comment")))));
@@ -158,14 +142,12 @@ var Wrapper = _styledComponents["default"].div.withConfig({
 var Label = _styledComponents["default"].label.withConfig({
   displayName: "Form__Label",
   componentId: "sc-11z001g-1"
-})(["margin-bottom:8px;display:block;font-weight:500;box-sizing:border-box;"]);
+})(["margin-bottom:8px;display:block;box-sizing:border-box;color:#444;font-weight:bold;"]);
 
 var Input = _styledComponents["default"].input.withConfig({
   displayName: "Form__Input",
   componentId: "sc-11z001g-2"
-})(["padding:14px;border:1px solid #dfdfdf;border-radius:5px;font-size:16px;width:100%;outline:none;:hover{border:1px solid #4c8bf5;}:focus{border:1px solid #4c8bf5;outline:1px #4c8bf5 auto;}transition:0.15s;box-sizing:border-box;", ""], function (props) {
-  return props.customStyles;
-});
+})(["padding:14px;border:1px solid #dfdfdf;border-radius:5px;font-size:16px;width:100%;outline:none;:hover{border:1px solid #4c8bf5;}:focus{border:1px solid #4c8bf5;outline:1px #4c8bf5 auto;}transition:0.15s;box-sizing:border-box;"]);
 
 var HiddenLabel = _styledComponents["default"].label.withConfig({
   displayName: "Form__HiddenLabel",
@@ -180,16 +162,12 @@ var HiddenInput = _styledComponents["default"].input.withConfig({
 var TextArea = _styledComponents["default"].textarea.withConfig({
   displayName: "Form__TextArea",
   componentId: "sc-11z001g-5"
-})(["padding:14px;border:1px solid #dfdfdf;border-radius:5px;font-size:16px;width:100%;outline:none;:hover{border:1px solid #4c8bf5;}:focus{border:1px solid #4c8bf5;outline:1px #4c8bf5 auto;}transition:0.15s;box-sizing:border-box;min-height:125px;resize:vertical;", " box-sizing:border-box;"], function (props) {
-  return props.customStyles;
-});
+})(["padding:14px;border:1px solid #dfdfdf;border-radius:5px;font-size:16px;width:100%;outline:none;:hover{border:1px solid #4c8bf5;}:focus{border:1px solid #4c8bf5;outline:1px #4c8bf5 auto;}transition:0.15s;box-sizing:border-box;min-height:125px;resize:vertical;box-sizing:border-box;"]);
 
 var Button = _styledComponents["default"].button.withConfig({
   displayName: "Form__Button",
   componentId: "sc-11z001g-6"
-})(["padding:14px;margin-left:auto;display:block;border-radius:5px;background:#4c8bf5;border:1px solid #4c8bf5;cursor:pointer;text-transform:uppercase;color:white;font-size:14px;box-shadow:2px 2px 8px -4px #447ee0;transition:0.15s;:hover{background:#447ee0;border:1px solid #447ee0;box-shadow:3px 3px 20px -8px #447ee0;}", " box-sizing:border-box;"], function (props) {
-  return props.customStyles;
-});
+})(["padding:14px;margin-left:auto;display:block;border-radius:5px;background:#4c8bf5;border:1px solid #4c8bf5;cursor:pointer;text-transform:uppercase;color:white;font-size:14px;box-shadow:2px 2px 8px -4px #447ee0;transition:0.15s;:hover{background:#447ee0;border:1px solid #447ee0;box-shadow:3px 3px 20px -8px #447ee0;}box-sizing:border-box;"]);
 
 var Row = _styledComponents["default"].div.withConfig({
   displayName: "Form__Row",

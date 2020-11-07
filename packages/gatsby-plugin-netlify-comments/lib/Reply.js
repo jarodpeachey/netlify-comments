@@ -188,32 +188,32 @@ var FooterLink = _styledComponents["default"].span.withConfig({
 var Label = _styledComponents["default"].label.withConfig({
   displayName: "Reply__Label",
   componentId: "sc-150to4y-6"
-})(["margin-bottom:8px;display:block;font-size:16px !important;"]);
+})(["margin-bottom:8px;display:block;box-sizing:border-box;color:#444;font-weight:bold;"]);
 
 var Input = _styledComponents["default"].input.withConfig({
   displayName: "Reply__Input",
   componentId: "sc-150to4y-7"
-})(["font-family:sans-serif;font-size:15px;color:#444;padding:6px 8px;margin:0;width:100%;border:1px solid #e8e8e8;border-radius:5px;:focus{outline:1px #fbbe76 auto;}font-size:16px !important;"]);
-
-var TextArea = _styledComponents["default"].textarea.withConfig({
-  displayName: "Reply__TextArea",
-  componentId: "sc-150to4y-8"
-})(["font-family:sans-serif;font-size:15px;color:#444;padding:6px 8px;width:100%;font-size:16px !important;margin:0;border:1px solid #e8e8e8;border-radius:5px;min-height:150px;resize:vertical;:focus{outline:1px #fbbe76 auto;}"]);
+})(["padding:14px;border:1px solid #dfdfdf;border-radius:5px;font-size:16px;width:100%;outline:none;:hover{border:1px solid #4c8bf5;}:focus{border:1px solid #4c8bf5;outline:1px #4c8bf5 auto;}transition:0.15s;box-sizing:border-box;"]);
 
 var HiddenLabel = _styledComponents["default"].label.withConfig({
   displayName: "Reply__HiddenLabel",
-  componentId: "sc-150to4y-9"
+  componentId: "sc-150to4y-8"
 })(["height:0px;width:0px;background:transparent;color:transparent;border:none;outline:none;cursor:default;padding:0;margin:0;max-height:0px;min-height:0px;display:float;box-sizing:border-box;"]);
 
 var HiddenInput = _styledComponents["default"].input.withConfig({
   displayName: "Reply__HiddenInput",
-  componentId: "sc-150to4y-10"
+  componentId: "sc-150to4y-9"
 })(["height:0px;width:0px;background:transparent;color:transparent;border:none;outline:none;cursor:default;padding:0;margin:0;max-height:0px;min-height:0px;display:float;box-sizing:border-box;"]);
+
+var TextArea = _styledComponents["default"].textarea.withConfig({
+  displayName: "Reply__TextArea",
+  componentId: "sc-150to4y-10"
+})(["padding:14px;border:1px solid #dfdfdf;border-radius:5px;font-size:16px;width:100%;outline:none;:hover{border:1px solid #4c8bf5;}:focus{border:1px solid #4c8bf5;outline:1px #4c8bf5 auto;}transition:0.15s;box-sizing:border-box;min-height:125px;resize:vertical;box-sizing:border-box;"]);
 
 var Button = _styledComponents["default"].button.withConfig({
   displayName: "Reply__Button",
   componentId: "sc-150to4y-11"
-})(["padding:12px;background:#fbbe76;color:white;border:none;outline:none;cursor:pointer;border-radius:5px;margin-left:auto;"]);
+})(["padding:14px;margin-left:auto;display:block;border-radius:5px;background:#4c8bf5;border:1px solid #4c8bf5;cursor:pointer;text-transform:uppercase;color:white;font-size:14px;box-shadow:2px 2px 8px -4px #447ee0;transition:0.15s;:hover{background:#447ee0;border:1px solid #447ee0;box-shadow:3px 3px 20px -8px #447ee0;}box-sizing:border-box;"]);
 
 var Row = _styledComponents["default"].div.withConfig({
   displayName: "Reply__Row",

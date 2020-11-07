@@ -204,7 +204,7 @@ export const Comments = ({ data }) => {
                               : comment.node.number)
                       )
                       .sort((a, b) =>
-                        a.node ? a.node.id - b.node.id : a.id - b.id
+                        a.node ? a.node.number - b.node.number : a.number - b.number
                       )}
                   />
                 );
