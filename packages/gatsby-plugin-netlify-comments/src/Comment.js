@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-fragments */
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Reply } from './Reply';
+import Reply from './Reply';
 
 function encode(data) {
   return Object.keys(data)
@@ -10,37 +10,16 @@ function encode(data) {
     .join('&');
 }
 
-export const Comment = ({ comment, children, replies = [], number }) => {
+const Comment = ({ comment, children, replies = [], number }) => {
   const [formOpen, setFormOpen] = useState(false);
-  const [showReplies, setShowReplies] = useState(false);
-
-  const [colors, setColors] = useState({
-    primary: '#fbbe76',
-    secondary: '#aacd67',
-  });
-
-  const [labelStyles, setLabelStyles] = useState({
-    fontSize: 16,
-    customCSS: 'margin: 0;',
-  });
-
-  const [inputStyles, setInputStyles] = useState({
-    fontSize: 16,
-    customCSS: 'margin: 0;',
-    paddingX: 16,
-    paddingY: 16,
-  });
-
-  const [buttonStyles, setButtonStyles] = useState({
-    customCSS: 'margin: 0;',
-  });
+  const [showReplies, setShowReplies] = useState(true);
 
   const [state, setState] = useState({
     path: typeof window !== 'undefined' && window.location.pathname,
     name: '',
     email: 'test@mail.com',
     comment: '',
-    parentCommentNumber: number
+    parentCommentNumber: number,
   });
 
   const handleChange = (e) => {
@@ -88,15 +67,12 @@ export const Comment = ({ comment, children, replies = [], number }) => {
         {/* <CommentDate>{formatDate(comment.date)}</CommentDate> */}
         <CommentBody>{comment.comment}</CommentBody>
         <CommentFooter>
-          <FooterLink
-            color={colors.primary}
-            onClick={() => setShowReplies(!showReplies)}
-          >
+          <FooterLink onClick={() => setShowReplies(!showReplies)}>
             {showReplies && replies
               ? 'Collapse'
               : `(+${replies.length}) Expand`}
           </FooterLink>
-          <FooterLink color={colors.primary} onClick={handleReplyOpen}>
+          <FooterLink onClick={handleReplyOpen}>
             {formOpen ? 'Cancel' : 'Reply'}
           </FooterLink>
         </CommentFooter>
@@ -107,7 +83,12 @@ export const Comment = ({ comment, children, replies = [], number }) => {
             id='form'
             data-netlify='true'
             onSubmit={handleSubmit}
-            style={{ background: '#f7f7f7', borderRadius: 6, padding: 12, marginTop: 12 }}
+            style={{
+              background: '#f7f7f7',
+              borderRadius: 6,
+              padding: 12,
+              marginTop: 12,
+            }}
           >
             <input type='hidden' name='form-name' value={formName} />
             <Row>
@@ -171,14 +152,17 @@ export const Comment = ({ comment, children, replies = [], number }) => {
       {replies && replies.length > 0 && (
         <>
           {showReplies && (
-            <RepliesWrapper color={`${colors.primary}30`}>
+            <RepliesWrapper>
               {replies.map((replyComment) => {
+                console.log('Reply: ', replyComment);
+
                 return (
                   <Reply
-                    colors={colors}
-                    buttonStyles={buttonStyles}
-                    inputStyles={inputStyles}
-                    comment={replyComment}
+                    comment={
+                      replyComment.node
+                        ? replyComment.node.data
+                        : replyComment.data
+                    }
                   />
                 );
               })}
@@ -200,18 +184,11 @@ const Wrapper = styled.div`
 `;
 
 const CommentTitle = styled.h3`
-  color: #2c2f3b;
   margin: 0;
 `;
 
-const CommentDate = styled.small`
-  display: block;
-  margin-bottom: 12px;
-  color: #4c5267;
-`;
-
 const CommentBody = styled.p`
-  color: #4c5267;
+  font-size: 1rem;
 `;
 
 const CommentFooter = styled.div`
@@ -231,69 +208,39 @@ const FooterLink = styled.span`
 const Label = styled.label`
   margin-bottom: 8px;
   display: block;
+  font-size: 16px !important;
 `;
 
 const Input = styled.input`
-  padding: 14px;
-  border: 1px solid #dfdfdf;
-  border-radius: 3px;
-  font-size: 16px;
+  font-family: sans-serif;
+  font-size: 15px;
+  color: #444;
+  padding: 6px 8px;
+  margin: 0;
   width: 100%;
-  outline: none;
-  :hover {
-    border: 1px solid #4c8bf5;
-  }
+  border: 1px solid #e8e8e8;
+  border-radius: 5px;
   :focus {
-    border: 1px solid #4c8bf5;
-    outline: 1px #4c8bf5 auto;
+    outline: 1px #fbbe76 auto;
   }
-  transition: 0.15s;
-  box-sizing: border-box;
-  ${(props) => props.customStyles}
+  font-size: 16px !important;
 `;
 
 const TextArea = styled.textarea`
-  padding: 14px;
-  border: 1px solid #dfdfdf;
-  border-radius: 3px;
-  font-size: 16px;
+  font-family: sans-serif;
+  font-size: 15px;
+  color: #444;
+  padding: 6px 8px;
   width: 100%;
-  outline: none;
-  :hover {
-    border: 1px solid #4c8bf5;
-  }
-  :focus {
-    border: 1px solid #4c8bf5;
-    outline: 1px #4c8bf5 auto;
-  }
-  transition: 0.15s;
-  box-sizing: border-box;
+  font-size: 16px !important;
+  margin: 0;
+  border: 1px solid #e8e8e8;
+  border-radius: 5px;
   min-height: 150px;
   resize: vertical;
-  font-family: inherit !important;
-  ${(props) => props.customStyles}
-`;
-
-const Button = styled.button`
-  padding: 14px;
-  margin-left: auto;
-  display: block;
-  border-radius: 6px;
-  background: #4c8bf5;
-  border: 1px solid #4c8bf5;
-  cursor: pointer;
-  text-transform: uppercase;
-  color: white;
-  font-size: 14px;
-  box-shadow: 2px 2px 8px -4px #447ee0;
-  transition: 0.15s;
-  :hover {
-    background: #447ee0;
-    border: 1px solid #447ee0;
-    box-shadow: 3px 3px 20px -8px #447ee0;
+  :focus {
+    outline: 1px #fbbe76 auto;
   }
-  ${(props) => props.customStyles}
-  box-sizing: border-box;
 `;
 
 const HiddenLabel = styled.label`
@@ -328,19 +275,23 @@ const HiddenInput = styled.input`
   box-sizing: border-box;
 `;
 
-const RepliesWrapper = styled.div`
-  border-left: 2px solid ${(props) => props.color};
-  margin-left: 32px;
-  padding-left: 32px;
-  width: calc(100% - 64px);
+const Button = styled.button`
+  padding: 12px;
+  background: #fbbe76;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: auto;
 `;
 
 const Row = styled.div`
+  margin: 0 -12px 0 -12px !important;
+
   @media (min-width: 769px) {
     display: flex !important;
     flex-wrap: wrap !important;
-    margin: 0 -12px 0 -12px !important;
-    width: calc(100% + 24px) !important;
   }
 `;
 
@@ -365,3 +316,11 @@ const ColumnTwelve = styled.div`
     width: 100%;
   }
 `;
+
+const RepliesWrapper = styled.div`
+  border-left: 2px solid #e8e8e8;
+  margin-left: 32px;
+  padding-left: 32px;
+`;
+
+export default Comment;

@@ -82,7 +82,7 @@ var Form = function Form(_ref) {
     });
   };
 
-  return /*#__PURE__*/_react["default"].createElement(Wrapper, null, /*#__PURE__*/_react["default"].createElement("br", null), /*#__PURE__*/_react["default"].createElement("br", null), /*#__PURE__*/_react["default"].createElement("h2", null, "Add A Comment"), /*#__PURE__*/_react["default"].createElement("form", {
+  return /*#__PURE__*/_react["default"].createElement(Wrapper, null, /*#__PURE__*/_react["default"].createElement("form", {
     name: formName,
     method: "post",
     id: "form" // action='/thanks/'
@@ -194,7 +194,7 @@ var Button = _styledComponents["default"].button.withConfig({
 var Row = _styledComponents["default"].div.withConfig({
   displayName: "Form__Row",
   componentId: "sc-11z001g-7"
-})(["@media (min-width:769px){display:flex !important;flex-wrap:wrap !important;margin:0 -12px 0 -12px !important;width:calc(100% + 24px) !important;}"]);
+})(["margin:0 -12px 0 -12px !important;@media (min-width:769px){display:flex !important;flex-wrap:wrap !important;}"]);
 
 var ColumnSix = _styledComponents["default"].div.withConfig({
   displayName: "Form__ColumnSix",

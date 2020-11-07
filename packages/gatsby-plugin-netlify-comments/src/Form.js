@@ -67,14 +67,6 @@ export const Form = ({ buttonStyles, inputStyles }) => {
 
   return (
     <Wrapper>
-      {/* <form name='comments-queue' netlify netlify-honeypot='bot-field' hidden>
-              <input type='text' name='name' id='' />
-              <input type='email' name='email' id='' />
-              <textarea name='comment' id=''></textarea>
-            </form> */}
-      <br />
-      <br />
-      <h2>Add A Comment</h2>
       <form
         name={formName}
         method='post'
@@ -248,11 +240,11 @@ const Button = styled.button`
 `;
 
 const Row = styled.div`
+  margin: 0 -12px 0 -12px !important;
+
   @media (min-width: 769px) {
     display: flex !important;
     flex-wrap: wrap !important;
-    margin: 0 -12px 0 -12px !important;
-    width: calc(100% + 24px) !important;
   }
 `;
 

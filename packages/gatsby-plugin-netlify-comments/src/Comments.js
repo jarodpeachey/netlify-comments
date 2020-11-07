@@ -3,7 +3,7 @@
 /* eslint-disable import/prefer-default-export */
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { Comment } from './Comment';
+import Comment from './Comment';
 
 function encode(data) {
   return Object.keys(data)
@@ -159,6 +159,8 @@ export const Comments = ({ data }) => {
     e.target.parentElement.appendChild(newElement);
   };
 
+  console.log('All comments: ', stateComments);
+
   return (
     <>
       {stateComments
@@ -171,7 +173,6 @@ export const Comments = ({ data }) => {
           a.node ? a.node.number - b.node.number : a.number - b.number
         ).length > 0 && (
         <>
-          <h2 className='title center-text'>Comments</h2>
           <CommentsSection>
             {stateComments
               .filter((comment) =>
@@ -183,19 +184,28 @@ export const Comments = ({ data }) => {
                 a.node ? a.node.number - b.node.number : a.number - b.number
               )
               .map((comment) => {
+                console.log('Comment: ', comment);
                 return (
                   <Comment
                     comment={comment.node ? comment.node.data : comment.data}
-                    number={comment.number ? comment.number : comment.node.number}
-                    // replies={stateComments
-                    //   .filter(
-                    //     (replyComment) =>
-                    //       replyComment.node.data.parentComment ===
-                    //       comment.node.data.id
-                    //   )
-                    //   .sort((a, b) =>
-                    //     a.node ? a.node.id - b.node.id : a.id - b.id
-                    //   )}
+                    number={
+                      comment.number ? comment.number : comment.node.number
+                    }
+                    replies={stateComments
+                      .filter((replyComment) =>
+                        replyComment.node
+                          ? replyComment.node.data.parentCommentNumber ==
+                            (comment.number
+                              ? comment.number
+                              : comment.node.number)
+                          : replyComment.data.parentCommentNumber ==
+                            (comment.number
+                              ? comment.number
+                              : comment.node.number)
+                      )
+                      .sort((a, b) =>
+                        a.node ? a.node.id - b.node.id : a.id - b.id
+                      )}
                   />
                 );
               })}

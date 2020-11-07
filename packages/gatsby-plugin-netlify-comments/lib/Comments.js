@@ -21,7 +21,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
-var _Comment = require("./Comment");
+var _Comment = _interopRequireDefault(require("./Comment"));
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -139,29 +139,25 @@ var Comments = function Comments(_ref) {
     e.target.parentElement.appendChild(newElement);
   };
 
+  console.log('All comments: ', stateComments);
   return /*#__PURE__*/_react["default"].createElement(_react["default"].Fragment, null, stateComments.filter(function (comment) {
     return comment.node ? comment.node.data.parentCommentNumber === 'undefined' : comment.data.parentCommentNumber === 'undefined';
   }).sort(function (a, b) {
     return a.node ? a.node.number - b.node.number : a.number - b.number;
-  }).length > 0 && /*#__PURE__*/_react["default"].createElement(_react["default"].Fragment, null, /*#__PURE__*/_react["default"].createElement("h2", {
-    className: "title center-text"
-  }, "Comments"), /*#__PURE__*/_react["default"].createElement(CommentsSection, null, stateComments.filter(function (comment) {
+  }).length > 0 && /*#__PURE__*/_react["default"].createElement(_react["default"].Fragment, null, /*#__PURE__*/_react["default"].createElement(CommentsSection, null, stateComments.filter(function (comment) {
     return comment.node ? comment.node.data.parentCommentNumber === 'undefined' : comment.data.parentCommentNumber === 'undefined';
   }).sort(function (a, b) {
     return a.node ? a.node.number - b.node.number : a.number - b.number;
   }).map(function (comment) {
-    return /*#__PURE__*/_react["default"].createElement(_Comment.Comment, {
+    console.log('Comment: ', comment);
+    return /*#__PURE__*/_react["default"].createElement(_Comment["default"], {
       comment: comment.node ? comment.node.data : comment.data,
-      number: comment.number ? comment.number : comment.node.number // replies={stateComments
-      //   .filter(
-      //     (replyComment) =>
-      //       replyComment.node.data.parentComment ===
-      //       comment.node.data.id
-      //   )
-      //   .sort((a, b) =>
-      //     a.node ? a.node.id - b.node.id : a.id - b.id
-      //   )}
-
+      number: comment.number ? comment.number : comment.node.number,
+      replies: stateComments.filter(function (replyComment) {
+        return replyComment.node ? replyComment.node.data.parentCommentNumber == (comment.number ? comment.number : comment.node.number) : replyComment.data.parentCommentNumber == (comment.number ? comment.number : comment.node.number);
+      }).sort(function (a, b) {
+        return a.node ? a.node.id - b.node.id : a.id - b.id;
+      })
     });
   }))));
 };

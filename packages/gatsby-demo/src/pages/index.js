@@ -78,14 +78,22 @@ const IndexPage = () => {
         <Container>
           <Title>Gatsby + Netlify Comments Demo</Title>
           <Subtitle>
-            Using a not-yet-released plugin, gatsby-plugin-netlify-comments, you
-            can easily add comments to your Gatsby site! Go ahead, play around.
+            This is a demo of a soon-to-be-released Gatsby plugin to allow you
+            to add comments to your static website! 🔥
           </Subtitle>
         </Container>
       </Hero>
       <Container>
-        <Form />
-        <Comments data={data} />
+        <Card>
+          <p>
+            Go ahead, add a comment and play around. You're data won't be used,
+            and you can use dummy data as well 🙂
+          </p>
+          <h2>Add a comment</h2>
+          <Form />
+          <h2>All comments</h2>
+          <Comments data={data} />
+        </Card>
       </Container>
     </>
   );
@@ -94,6 +102,7 @@ const IndexPage = () => {
 const Hero = styled.div`
   padding: 100px 0;
   background: rgb(68, 126, 224);
+  padding-bottom: 380px;
 `;
 
 const Container = styled.div`
@@ -112,6 +121,7 @@ const Title = styled.h1`
   font-weight: 600;
   max-width: 600px;
   margin: 0 auto;
+  margin-bottom: 32px;
 `;
 
 const Subtitle = styled.h3`
@@ -119,9 +129,37 @@ const Subtitle = styled.h3`
   margin-top: 0;
   font-size: 22px;
   font-weight: 400;
-  max-width: 550px;
+  max-width: 600px;
   text-align: center;
   margin: 0 auto;
+`;
+
+const Card = styled.div`
+  border-radius: 10px;
+  box-shadow: 1px 1px 1400px 0px #00000030;
+  background: white;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 48px;
+  margin-top: -248px;
+
+  h2 {
+    margin-top: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #222;
+  }
+
+  p {
+    color: #444;
+  }
+
+  p:first-child {
+    font-size: 1.125rem;
+    margin-top: 0;
+    margin-bottom: 24px;
+  }
 `;
 
 export default IndexPage;
